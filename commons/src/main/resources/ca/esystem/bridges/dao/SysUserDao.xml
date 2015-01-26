@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.SysUserDao">
+
+ 
+  <sql id="SelectFields">
+     select userid,email,usertype,pass,verifycode,firstname,lastname,birth,sex,phone,credit,rank,status,role,lastlogin,inputtime from sys_user
+  </sql>
+   
+  <sql id="WhereClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="firstname!=null and firstname!=''">
+	       AND firstname = #{firstname} 
+	    </if>
+	    <if test="lastname!=null and lastname!=''">
+	       AND lastname = #{lastname} 
+	    </if>
+	    <if test="email!=null and email!=''">
+	       AND email = #{email} 
+	    </if>
+        <if test="phone!=null and phone!=''">
+	       AND phone like '%${phone}%' 
+	    </if>	    
+	    <if test="usertype!=null and usertype!=''">
+	       AND usertype = #{usertype}
+	    </if>
+    
+	    <if test="status>-1">
+	       AND status = #{status}
+	    </if>
+	    
+    </trim>
+  </sql>
+    
+  <select id="queryListByCondition" resultType="SysUser" parameterType="SysUser" >
+    <include refid="SelectFields"/>
+    <include refid="WhereClause"/>
+    <if test="orderByClause!=null and orderByClause!=''">
+       order by ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if>    
+  </select> 
+  
+  <select id="queryCountRowsByCondition" parameterType="SysUser" resultType="java.lang.Integer" >
+    select count(*) from sys_user 
+    <include refid="WhereClause"/>
+  </select>  
+  
+  <select id="queryObjectByCondition" resultType="SysUser" parameterType="SysUser" >
+    select * from sys_user 
+    <where>
+      userid=#{userid}
+    </where>
+  </select>
+ 
+ <insert id="insert" parameterType="SysUser" useGeneratedKeys="true" keyProperty="userid" keyColumn="userid">
+    insert into sys_user (
+      <if test="email!=null and email!=''">
+        email,
+      </if>
+      <if test="usertype!=null and usertype!=''">
+        usertype,
+      </if>
+      <if test="status>0">
+        status,
+      </if> 
+      <if test="pass!=null and pass!=''">
+        pass,
+      </if>      
+ 
+      <if test="firstname!=null and firstname!=''">
+        firstname,
+      </if>
+      <if test="lastname!=null and lastname!=''">
+        lastname,
+      </if>
+      <if test="birth!=null and birth!=''">
+        birth,
+      </if>
+      <if test="sex!=null and sex!=''">
+        sex,
+      </if>
+      <if test="phone!=null and phone!=''">
+        phone,
+      </if>
+      <if test="cell!=null and cell!=''">
+        cell,
+      </if>   
+      <if test="address!=null and address!=''">
+        address,
+      </if>
+      <if test="city!=null and city!=''">
+        city,
+      </if> 
+      <if test="description!=null and description!=''">
+        description,
+      </if>       
+      <if test="tcpip!=null and tcpip!=''">
+        tcpip,
+      </if>
+      <if test="inputby!=null and inputby!=''">
+        inputby,
+      </if>
+      <if test="inputtime!=null and inputtime!=''">
+        inputtime
+      </if>
+      )
+    values
+    (
+      <if test="email!=null and email!=''">
+        #{email},
+      </if>
+      <if test="usertype!=null and usertype!=''">
+        #{usertype},
+      </if>
+      <if test="status>0">
+        #{status},
+      </if> 
+      <if test="pass!=null and pass!=''">
+        #{pass},
+      </if>      
+ 
+      <if test="firstname!=null and firstname!=''">
+        #{firstname},
+      </if>
+      <if test="lastname!=null and lastname!=''">
+        #{lastname},
+      </if>
+      <if test="birth!=null and birth!=''">
+        #{birth},
+      </if>
+      <if test="sex!=null and sex!=''">
+        #{sex},
+      </if>
+      <if test="phone!=null and phone!=''">
+        #{phone},
+      </if>
+      <if test="cell!=null and cell!=''">
+        #{cell},
+      </if>   
+      <if test="address!=null and address!=''">
+        #{address},
+      </if>
+      <if test="city!=null and city!=''">
+        #{city},
+      </if>
+      <if test="description!=null and description!=''">
+        #{description},
+      </if> 
+      <if test="tcpip!=null and tcpip!=''">
+        #{tcpip},
+      </if>
+      <if test="inputby!=null and inputby!=''">
+        #{inputby},
+      </if>
+      <if test="inputtime!=null and inputtime!=''">
+        #{inputtime}
+      </if>
+      )
+  </insert>  
+    
+</mapper>

@@ -1,0 +1,242 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<div class="col-sm-4">
+    <img src="/images/1.jpg" class="img-responsive hidden-xs"
+    alt="Responsive image">
+</div>
+<div class="col-sm-8">
+    <form id="signupForm" class="form-horizontal" action="/web/signup.flow;jsessionid=11C0A281982B39A0BDD5F8038082C3F6?execution=e1s1" method="post">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="yonghu">服务商会员申请</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="user.email" class="col-sm-2 control-label">街道信息*</label>
+                    <div class="col-sm-8">
+                        <input id="email" name="user.email" data-validation="required" placeholder="街道信息" data-validation-url="signup/validateemail.html" class="form-control" type="text" value=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="user.phone" class="col-sm-2 control-label">公司名称*</label>
+                    <div class="col-sm-8">
+                        <input id="user.lastName" name="user.lastName" data-validation="required" placeholder="公司名称" class="form-control" type="text" value=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">联系人姓名</label>
+                    <div class="col-sm-8">
+                        <input id="user.lastName" name="user.lastName" data-validation="required" placeholder="联系人姓名" class="form-control" type="text" value=""/>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group" id="mima">
+                    <label for="password" class="col-sm-2 control-label">主要业务*</label>
+                    <div class="col-sm-8">
+                        <button type="button" class="btn btn-default">主要业务</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">服务地区*</label>
+                    <div class="col-sm-8">
+                        <label class="checkbox-inline"><input type="checkbox">列治文</label> <label class="checkbox-inline"><input type="checkbox">温西</label> <label class="checkbox-inline"><input type="checkbox">温东</label><label class="checkbox-inline"><input type="checkbox">西温</label><label class="checkbox-inline"><input type="checkbox">白石</label><label class="checkbox-inline"><input type="checkbox">本拿笔</label><label class="checkbox-inline"><input type="checkbox">素里</label><label class="checkbox-inline"><input type="checkbox">高贵林</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- panel-group -->
+            <div class="col-sm-10">
+               
+               
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne"> 其他<span class="glyphicon glyphicon-arrow-down"></span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne"
+                style="padding-top: 15px;">
+                
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-1 control-label"></label>
+                            <div class="col-sm-8">
+                                <input id="address.address" name="address.address" placeholder="address" class="form-control" type="text" value=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div><!-- collapse end -->
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="user.phone" class="col-sm-2 control-label">业务手机*</label>
+            <div class="col-sm-8">
+                <input id="user.lastName" name="user.lastName" data-validation="required" placeholder="业务手机" class="form-control" type="text" value=""/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">业务邮箱*</label>
+            <div class="col-sm-8">
+                <input id="user.lastName" name="user.lastName" data-validation="required" placeholder="业务邮箱" class="form-control" type="text" value=""/>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-2 control-label">微信号</label>
+            <div class="col-sm-8">
+                <input id="user.password_confirmation" name="user.password_confirmation" data-validation="strength" placeholder="微信号" class="form-control" data-validation-strength="1" type="password" value=""/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-2 control-label">公司地址</label>
+            <div class="col-sm-8">
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <select class="form-control dateSelector" id="yearSelector">
+                            
+                            <option value="0">--</option>
+                            <option value="2014">2014</option>
+                            
+                        </select>
+                        <span class="input-group-addon">城市</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <select class="form-control dateSelector" id="yearSelector">
+                            
+                         <option>--</option>
+                         <option>河北</option>
+                         
+                     </select>
+                     <span class="input-group-addon">省</span>
+                 </div>
+             </div>
+             <div class="col-sm-4">
+                <div class="input-group">
+                    <select class="form-control dateSelector" id="yearSelector">
+                        
+                      <option>加拿大</option>
+                      <option>美国</option>
+                      <option>中国</option>
+                      <option>其他</option>
+                      
+                  </select>
+                  <span class="input-group-addon">国家</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label"></label>
+            <div class="col-sm-8">
+                <div class="checkbox">
+                    <label>
+                        <input id="userProfile.smsContact1" name="userProfile.smsContact" type="checkbox" value="true" checked="checked"/><input type="hidden" name="_userProfile.smsContact" value="on"/> 同意接受三桥服务以电话、短信、邮件和微信方式与我进行业务联系
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-2 control-label">服务商</label>
+            <div class="col-sm-8">
+                <label class="checkbox-inline"><input type="checkbox" value="">个人</label> <label class="checkbox-inline"><input type="checkbox" value="">企业</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-2 control-label">服务商类型</label>
+            <div class="col-sm-8">
+                
+                
+                <div class="dropdown">
+                  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default" >
+                    请选择
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li><a href="#myModal-sheng" data-toggle="modal" data-target="#myModal-sheng">注册服务商</a></li>
+                    <li><a href="#"><a href="#myModal-ddpj" data-toggle="modal" data-target="#myModal-ddpj" class="pj">认证服务商</a></li>
+                </ul>
+            </div>
+
+            
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-10" style="text-align:right;">
+        <button type="submit" class="btn btn-success" name="_eventId_next" disabled="disabled" id="nextbutton"> 下一步 </button>
+    </div>
+</div>
+</form>
+</div>
+
+</div>
+</div>
+
+ <!--#include file="footer.shtml" -->

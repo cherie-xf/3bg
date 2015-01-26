@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.DictionaryDao">
+
+	<select id="queryTicketStatusList" resultType="Dictionary">
+		SELECT status_code
+		as code,status_name as name,priority FROM ticket_status
+		order by
+		priority
+	</select>
+
+	<select id="queryTicketSourceType" resultType="Dictionary">
+		SELECT type_code
+		as code,type_name as name FROM ticket_source_type
+	</select>
+
+	<select id="queryLanguageList" resultType="Dictionary">
+		SELECT language_code
+		as code,language_name as name FROM languages
+	</select>
+
+	<select id="queryContactTypeList" parameterType="String" resultType="Dictionary">
+		SELECT type_code as
+		code,type_name as name FROM contact_type
+		<if test="value != null">
+		 	WHERE type_class = #{value}
+		 </if>
+	</select>
+
+	<select id="queryCountryList" resultType="Dictionary">
+		SELECT country_code as
+		code,country as name FROM country
+	</select>
+
+	<select id="queryCityList" parameterType="String" resultType="Dictionary">
+		SELECT city_code as code,city as name FROM city where
+		country_code=#{value} order by city_code
+	</select>
+
+	<select id="queryMemberTypeList" resultType="Dictionary">
+		SELECT type_code as
+		code,type_name as name FROM member_type
+	</select>
+
+	<select id="querySubMemberTypeList" resultType="Dictionary"
+		parameterType="String">
+		SELECT type_code as code,type_name as name FROM
+		member_type
+		WHERE type_code like '%${value}%'
+	</select>
+
+	<select id="queryRecommendlevelList" resultType="Dictionary">
+		SELECT
+		recommend_level_id as code,recommend_level_name as name FROM
+		recommend_level
+	</select>
+
+	<select id="queryServiceUnitList" parameterType="String"
+		resultType="Dictionary">
+		SELECT unit_id as code,unit as name FROM service_unit
+	</select>
+
+	<select id="queryServiceStatusList" parameterType="String"
+		resultType="Dictionary">
+		SELECT status_id as code,status as name FROM service_status
+	</select>
+
+	<select id="queryServiceOrderStatusList" parameterType="String"
+		resultType="Dictionary">
+		SELECT status_id as code,status_name as name FROM
+		service_order_status ORDER BY status_id ASC
+	</select>
+
+	<select id="queryBlogStatusList" parameterType="String"
+		resultType="Dictionary">
+		SELECT status_code as code,status_name as name FROM
+		blog_status
+	</select>
+
+	<select id="queryBlogClassList" parameterType="String"
+		resultType="Dictionary">
+		SELECT class_id as code,class_name as name FROM blog_class
+	</select>
+
+	<select id="queryNormUserList" parameterType="String"
+		resultType="Dictionary">
+		SELECT b.user_id AS code , concat(b.first_name,b.last_name)
+		AS name
+		FROM member a
+		LEFT JOIN USER b ON a.user_id = b.user_id
+		WHERE
+		a.type_code = 'S1'
+	</select>
+	
+	<select id="queryContactTypeIconList" parameterType="String" resultType="Dictionary">
+		SELECT type_code as
+		code,icon as name FROM contact_type
+		<if test="value != null">
+		 	WHERE type_class = #{value}
+		 </if>
+	</select>
+	
+	<select id="queryContentClassList" parameterType="String"
+		resultType="Dictionary">
+		SELECT class_id as code,class_name as name FROM content_class
+	</select>	
+	
+</mapper>

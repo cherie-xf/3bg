@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="1111@gmail.com" phone="77881111"
+		first_name="test1" last_name="Apple" preferred_name="A" status="1"/>
+	<user user_id="2" email="2222@gmail.com" phone="77882222"
+		first_name="test2" last_name="Bravo" preferred_name="B" />
+	<user user_id="3" email="3333@gmail.com" phone="77883333"
+		first_name="test3" last_name="Cat" preferred_name="C" />
+
+	<member_type type_code="B1" type_name="普通服务商" />
+	<member_type type_code="B2" type_name="注册服务商" />
+	<member_type type_code="B3" type_name="认证服务商" />
+	<member_type type_code="C1" type_name="普通会员" />
+	<member_type type_code="C2" type_name="VIP会员" />
+	<member_type type_code="S1" type_name="普通客服" />
+	<member_type type_code="S2" type_name="客服主管" />
+	<member_type type_code="S3" type_name="系统管理员" />
+
+	<languages language_code="10MAN" language_name="国语" />
+	<languages language_code="20CAN" language_name="粤语" />
+	<languages language_code="30ENG" language_name="English" />
+
+	<recommend_level recommend_level_id="0"
+		recommend_level_name="无" />
+	<recommend_level recommend_level_id="1"
+		recommend_level_name="低" />
+	<recommend_level recommend_level_id="2"
+		recommend_level_name="中" />
+	<recommend_level recommend_level_id="3"
+		recommend_level_name="高" />
+
+	<member member_id="S0000001" user_id="1" type_code="S1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="1" created_at="2014-11-27 13:30:04" modified_by="1" />
+	<member member_id="S0001001" user_id="2" type_code="S2" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="2" created_at="2014-11-27 13:30:04" modified_by="2" />
+	<member member_id="S0001002" user_id="3" type_code="S3" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="2" created_at="2014-11-27 13:30:04" modified_by="2" />
+
+	<user_profile user_id="1" gender="m" birthday="2014-11-27 13:30:04"
+		blood_type="B" preferred_language="10MAN"  />
+	<user_profile user_id="2" gender="f" birthday="2014-11-27 13:30:04"
+		blood_type="B" preferred_language="20CAN" />
+	<user_profile user_id="3" gender="m" birthday="2014-11-27 13:30:04"
+		blood_type="B" preferred_language="30ENG" />
+
+
+</dataset>

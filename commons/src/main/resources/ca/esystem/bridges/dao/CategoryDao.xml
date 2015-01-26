@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.CategoryDao">
+ 
+  <sql id="SelectCategroyFields">
+    SELECT a.category_id, 
+    	   a.category_name, 
+    	   a.english_name, 
+    	   a.description,
+    	   a.parent_id,
+    	   a.leaf,
+    	   a.enable,
+    	   a.priority,
+    	   a.cssclass,
+    	   b.category_name AS parentCategoryName
+    FROM category a left join category b on a.parent_id = b.category_id  
+  </sql>
+   
+  <sql id="WhereCategroyClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="category_id != null and category_id != ''">
+	       AND a.category_id like '%${category_id}%' 
+	    </if>   
+	    <if test="category_name != null and category_name != ''">
+	       AND a.category_name like '%${category_name}%'
+	    </if>
+	    <if test="(category_id == null or category_id == '') and 
+	    			(category_name == null or category_name == '') and
+	    			(parent_id == null or parent_id == '')">
+	       AND a.parent_id IS NULL
+	    </if>
+	    <if test="parent_id != null and parent_id != ''">
+	       AND a.parent_id = '${parent_id}'
+	    </if>
+	    <if test="is_deleted != null and is_deleted == false">
+	       AND a.is_deleted = 0	       
+	    </if>
+    </trim>
+  </sql>
+    
+  <select id="queryListByCondition" resultType="Category" parameterType="Category">
+    <include refid="SelectCategroyFields"/>
+    <include refid="WhereCategroyClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if> 
+  </select> 
+  
+  <select id="queryCountRowsByCondition" parameterType="Category" resultType="java.lang.Integer" >
+    SELECT count(category_id) 
+    FROM category a
+    <include refid="WhereCategroyClause"/>
+  </select>  
+  
+  <select id="queryObjectByCondition" resultType="Category" parameterType="Category" >
+    SELECT * FROM category 
+    <where>
+      category_id=#{category_id} AND is_deleted = 0
+    </where>
+  </select>
+ 
+ <insert id="insert" parameterType="Category" useGeneratedKeys="false" keyProperty="category_id" keyColumn="category_id">
+    INSERT INTO category (
+      <if test="category_id != null and category_id != ''">
+        category_id,
+      </if>
+      <if test="category_name != null and category_name !=''">
+        category_name,
+      </if>
+      <if test="english_name != null and english_name != ''">
+        english_name,
+      </if>
+      <if test="parent_id != null and parent_id != ''">
+        parent_id,
+      </if>
+      <if test="leaf != null">
+        leaf,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+      <if test="priority > 0">
+        priority,
+      </if>
+      <if test="cssclass != null and cssclass != ''">
+        cssclass,
+      </if>
+      <if test="description != null and description != ''">
+        description,
+      </if>
+      <if test="created_by > 0">
+        created_by,
+      </if>
+      <if test="created_at != null">
+        created_at
+      </if>       
+      )
+    values
+    (
+       <if test="category_id != null and category_id != ''">
+       #{category_id},
+      </if>
+      <if test="category_name != null and category_name !=''">
+        #{category_name},
+      </if>
+      <if test="english_name != null and english_name != ''">
+        #{english_name},
+      </if>
+      <if test="parent_id != null and parent_id != ''">
+        #{parent_id},
+      </if>
+      <if test="leaf != null">
+        #{leaf},
+      </if>
+      <if test="enable != null">
+        #{enable},
+      </if>
+      <if test="priority > 0">
+        #{priority},
+      </if>
+      <if test="cssclass != null and cssclass != ''">
+        #{cssclass},
+      </if>
+      <if test="description != null and description != ''">
+        #{description},
+      </if>
+      <if test="created_by > 0">
+        #{created_by},
+      </if>
+      <if test="created_at != null">
+        #{created_at}
+      </if> 
+      )
+  </insert>  
+
+  <update id="update" parameterType="Category">
+    UPDATE category
+    <set>
+      <if test="category_name != null">
+        category_name = #{category_name},
+      </if>
+      <if test="english_name != null">
+        english_name = #{english_name},
+      </if>
+      <if test="parent_id != null and parent_id != ''">
+        parent_id = #{parent_id},
+      </if>
+      <if test="leaf != null">
+        leaf = #{leaf},
+      </if>
+      <if test="enable != null">
+        enable = #{enable},
+      </if>
+      <if test="priority != null">
+        priority = #{priority},
+      </if>
+      <if test="cssclass != null">
+        cssclass = #{cssclass},
+      </if>
+      <if test="description != null">
+        description = #{description},
+      </if>  
+      <if test="modified_by > 0">
+        modified_by = #{modified_by},
+      </if>
+      <if test="modified_at != null">
+        modified_at = #{modified_at},
+      </if>
+    </set>
+    WHERE category_id = #{category_id} AND is_deleted = 0
+  </update>
+
+  <update id="delete" parameterType="Category">
+    UPDATE category
+    <set>
+      <if test="modified_by > 0">
+        modified_by = #{modified_by},
+      </if>
+      <if test="modified_at != null">
+        modified_at = #{modified_at},
+      </if>
+      is_deleted = 1
+    </set>
+    WHERE category_id = #{category_id} AND is_deleted = 0
+  </update> 
+  	
+ <insert id="insertTag" parameterType="CategoryTag" useGeneratedKeys="true" keyProperty="tag_id" keyColumn="tag_id">
+    INSERT INTO category_tag (
+      <if test="tag != null and tag != ''">
+        tag,
+      </if>
+      <if test="category_id != null and category_id !=''">
+        category_id,
+      </if>
+      <if test="created_by > 0">
+        created_by,
+      </if>
+      <if test="created_at != null">
+        created_at
+      </if>       
+      )
+    values
+    (
+      <if test="tag != null and tag !=''">
+        #{tag},
+      </if>
+       <if test="category_id != null and category_id != ''">
+       #{category_id},
+      </if>
+      <if test="created_by > 0">
+        #{created_by},
+      </if>
+      <if test="created_at != null">
+        #{created_at}
+      </if> 
+      )
+  </insert>      
+  
+  <update id="deleteTag" parameterType="CategoryTag">
+    UPDATE category_tag set is_deleted = 1 WHERE tag_id = #{tag_id} AND is_deleted = 0
+  </update> 
+  
+  <sql id="SelectTagFields">
+    SELECT * FROM category_tag  
+  </sql>
+   
+  <sql id="WhereTagClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="category_id != null and category_id != ''">
+	       AND category_id = #{category_id} AND is_deleted = 0
+	    </if>   
+    </trim>
+  </sql>
+
+  <select id="queryTagListByCondition" resultType="CategoryTag" parameterType="CategoryTag">
+    <include refid="SelectTagFields"/>
+    <include refid="WhereTagClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if> 
+  </select> 
+  
+  <select id="queryTreeListByCondition" resultType="CategoryTree" parameterType="CategoryTree">
+    <include refid="SelectCategroyFields"/>
+    <include refid="WhereCategroyClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if> 
+  </select> 
+    
+</mapper>

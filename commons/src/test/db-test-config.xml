@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd">
+
+	<!-- enable component scanning and autowire -->
+	<context:component-scan
+		base-package="ca.esystem.bridges.framework.domain, ca.esystem.bridges.framework.dao, 
+                        ca.esystem.bridges.domain, ca.esystem.bridges.dao" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" scope="singleton">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/3bdbtest?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="test" />
+		<property name="password" value="test" />
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWait" value="5000" />
+		<property name="validationQuery" value="SELECT 1" />
+	</bean>
+
+	<jdbc:initialize-database data-source="dataSource"
+		ignore-failures="ALL">
+		<jdbc:script execution="INIT"
+			location="file:src/test/database/scripts/bootstrap-db.sql" />
+	    <jdbc:script execution="INIT"
+            location="file:src/test/database/scripts/bootstrap_data.sql" />
+		<jdbc:script execution="DESTROY"
+			location="file:src/test/database/scripts/drop_tables.sql" />
+	</jdbc:initialize-database>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="MySqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="ca.esystem.bridges.domain" />
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="MySqlSessionFactory" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="ca.esystem.bridges.dao" />
+		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
+	</bean>
+
+</beans>

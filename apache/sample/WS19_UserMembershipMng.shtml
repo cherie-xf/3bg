@@ -1,0 +1,280 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<!----------------左侧边栏---------------->
+<!--#include file="leftbar.html" -->
+
+<!----------------右侧边栏---------------->
+<!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main1">-->
+<div class="col-sm-12 col-md-9">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <span class="tbsmanagementtitle">会员信息管理</span>
+            </div>
+        </div>
+    </div>                            
+    <form class="form-horizontal" role="form">
+        <div class="row">
+            <div class="col-sm-12 col-md-2">
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-8 col-md-8">
+                        <a class="btn  btn-default tbs-button tbs-orange tbs-button-orange" href="#myModal-fws" data-toggle="modal" data-target="#myModal-fws">申请新会员</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-----------表格1---------------------->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <tr>
+                        <th>会员ID</th>
+                        <th>会员类型</th>
+                        <th>生效日期</th>
+                        <th>失效日期</th>
+                        <th>服务日期</th>
+                        <th style="width:90px;">操作</th>
+                    </tr>
+                    <tr>
+                        <td>B1090876</td>
+                        <td>注册服务商</td>
+                        <td>2015-01-01</td>
+                        <td>2015-12-31</td>
+                        <td>2014/10/20</td>
+                        <td><a href="#myModal-sheng" data-toggle="modal" data-target="#myModal-sheng">升级 / 降级</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B2345678</td>
+                        <td>认证服务商</td>
+                        <td>2015-01-01</td>
+                        <td>2015-12-31</td>
+                        <td>2014/10/20</td>
+                        <td><a href="#myModal-sheng" data-toggle="modal" data-target="#myModal-sheng">升级 / 降级</a><br>
+                            <a href="#myModal-fws" data-toggle="modal" data-target="#myModal-fws" class="fwsxx">服务商信息</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B1090876</td>
+                        <td>认证服务商</td>
+                        <td>2015-01-01</td>
+                        <td>2015-12-31</td>
+                        <td>2014/10/20</td>
+                        <td><a href="#myModal-sheng" data-toggle="modal" data-target="#myModal-sheng">升级 / 降级</a><br>
+                            <a href="#myModal-fws" data-toggle="modal" data-target="#myModal-fws" class="fwsxx">服务商信息</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <nav style="float:right;">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#">上一页</a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">下一页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="myModal-sheng" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3>会员ID<em class="hy-id">C1098098</em>升降级变更原因</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal " role="form">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">原会员类型：</label>
+                        <div class="col-sm-9 text-left">
+                            <p class="form-control-static">普通消费者</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectBiangeng" class="col-md-3 control-label">变更为：</label>
+                        <div class="col-md-4" id="yuyan2">
+                            <select class="form-control" id="selectBiangeng">
+                                <option>普通消费者</option>
+                                <option>注册服务商</option>
+                                <option>认证服务商</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputYuanyin" class="col-md-3 control-label">变更原因：</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" rows="3" id="inputYuanyin"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">提交申请</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal-fws" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3>服务商信息</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal " role="form">
+                    <div class="form-group">
+                        <label for="inputCompany" class="col-md-3 control-label wleft">公司名称(英文)：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="inputCompany" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFaren" class="col-md-3 control-label wleft">联系人姓名：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="inputFaren" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBusinessid" class="col-md-3 control-label">Business ID：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="inputBusinessid" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label wleft">业务范围：</label>
+                        <div class="col-md-9">
+                            <div class="checkbox yewu-check">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">家庭旅馆
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox2" value="option2">学生寄宿
+                                </label>
+                            </div>
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title" id="yewu"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseBusiness" aria-expanded="true" aria-controls="collapseBusiness"> 选择业务</a> </h4>
+                                    </div>
+                                    <div id="collapseBusiness" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <ul class="xz-yewu" style="width:100%;">
+                                                
+                                                <li><div class="checkbox ">
+                                                    <label>
+                                                        <input type="checkbox" value="">
+                                                        美容</a> </label>
+                                                    </div></li>
+                                                    <li><div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="">
+                                                            护肤</a> </label>
+                                                        </div></li>
+                                                        <li><div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" value="">
+                                                                健体</a> </label>
+                                                            </div></li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-md-3 control-label wleft">Business类型：</label>
+                                    <div class="col-md-9 yewu-check1">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">个人
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">企业
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-md-3 control-label wleft">资格证号/BN：</label>
+                                    <div class="col-md-9 yewu-check1">
+                                        B987654456788
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-md-3 control-label wleft">税号：</label>
+                                    <div class="col-md-9 yewu-check1">
+                                        B987654456788
+                                    </div></div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-3 control-label wleft">WCB号：</label>
+                                        <div class="col-md-9 yewu-check1">
+                                            B987654456788
+                                        </div></div>
+                                        <div class="form-group">
+                                            <label for="" class="col-md-3 control-label wleft">Business始于：</label>
+                                            <div class="col-md-9 yewu-check1">
+                                                10/09/2009
+                                            </div></div>
+                                            <div class="form-group">
+                                                <label for="shangchuan" class="col-md-3 control-label wleft">支持文档：</label>
+                                                <div class="col-md-9">
+                                                    <button type="button" id="shangchuan" class="btn btn-default">上传</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtCode" class="col-md-3 control-label wleft">公司描述：</label>
+                                                <div class="col-md-9">
+                                                    <div id="divEditor-ms"></div>
+                                                    <textarea id="txtCode" rows="5" cols="50" style="width:100%"></textarea>
+                                                    <span class="help-block">发布服务商信息(Business Number、税号、WCB等不会发布)</span>
+                                                    
+                                                    <script type="text/javascript">
+                                        //test
+                                        $(function () {
+                                          $('#divEditor-ms').wangEditor({
+                                                                        codeTargetId: 'txtCode',              //将源码存储到txtCode
+                                                                        frameHeight: '300px',                 //默认值为“300px”
+                                                                        //要显示在编辑器中的html源码（用于编辑）
+                                                                        initStr: '<p>请输入文字.</p>'   
+                                                                    });
+                                      });
+                                        </script> 
+                                    </div>
+                                </div>
+                            <!--<div class="form-group" id="queding">
+                            <button type="button" class="btn btn-default btn-lg">确定</button></div>-->
+                        </form>
+                    </div>
+                    <div class="modal-footer t-center">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+</div>
+<!--#include file="footer.shtml" -->

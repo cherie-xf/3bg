@@ -1,0 +1,145 @@
+﻿<!--#include file="header.shtml" -->
+
+<div class="container tbsorangea">
+    <div class="main tbsservice">
+        <div class="col-sm-12">
+            <a>居家生活</a> > <a>美容美发</a> > <a>美甲</a> > <a href="WS21_ServiceProvider.shtml">音速美甲</a> > ABC美甲服务
+        </div>
+        <div class="col-sm-12 tbsservicetitile">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="tbsservicetitileleft">
+                        <span class="glyphicon glyphicon-bookmark" style="color:#ff772f;"></span>&nbsp;&nbsp;<a href="WS21_ServiceProvider.shtml">音速美甲</a> > ABC美甲服务
+                    </div>            
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-block tbs-button tbs-button-orange tbs-orange">立即订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>           
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 tbservicecontent">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="/images/tbsnailing.jpg" class="img-responsive">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;收藏
+                                    <span class="glyphicon glyphicon-heart" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>  
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;关注
+                                    <span class="glyphicon glyphicon-eye-open" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;分享
+                                    <span class="weibo-m"></span><span class="fb-m"></span>&nbsp;<span class="glyphicon glyphicon-share-alt" style="color:#ffffff;font-size:13px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockgrey">
+                                <div class="tbsleftbarblockbolditem" style="font-size:16px;">服务商信息：</div>
+                                <div class="tbsleftbarblockbolditem">服务商名称： <a href="WS21_ServiceProvider.shtml">音速美甲</a></div>
+                                <div class="tbsleftbarblockbolditem">分类标签：<a>居家生活</a> > <a>美容美发</a> > <a>美甲</a> > <a href="WS21_ServiceProvider.shtml">音速美甲</a> > ABC美甲服务</div>
+                                <div class="tbsleftbarblockbolditem">联系方式：</a></div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-map-marker"></span> &nbsp; Sonic Nailing Inc, 2565 Alma Street</div>
+                                <div class="tbsleftbarblockitem">Vancouver, BC V6R 386</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-envelope"></span> &nbsp; abc@gmail.com</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-phone-alt"></span> &nbsp; 604-368-0085</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-time"></span> &nbsp; 9:00am-5:00pm</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-globe"></span> &nbsp; www.abcnailing.com</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbstitle">
+                                产品详情：
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockbolditem">产品名称：ABC美甲服务</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div style="display:inline-block"><input value="4.5" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" disabled="disabled"></div>
+                            &nbsp;(667次总评价次数)
+                         </div>   
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockitem">服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述
+                            </div>
+                            <div class="tbsleftbarblockitem">
+                            这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockgrey">
+                                    <div class="tbsleftbarblockbolditem">产品价格：</div>
+                                    <div class="tbsleftbarblockbolditem">服务产品单价：$15每小时</div>
+                                    <div class="tbsleftbarblockbolditem">服务起步价：$15起</div>
+                                    <div class="tbsleftbarblockbolditem">不含税GST、PST</div>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="tbsleftbarblockbolditem">服务区域范围：Vancouver</div> 
+                            <div class="tbsleftbarblockbolditem">月销量：201 | 累计销量：6022</div> 
+                            <div class="tbsleftbarblockbolditem">质保承诺：不满意退款</div> 
+                        </div>
+                    </div>
+
+                    <div class="row tbsblock">
+                        <div class="col-sm-12">
+                            <div class="tbstitle">
+                                产品图片：
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="/images/tbsnailing1.jpg" class="img-responsive">
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="/images/tbsnailing2.jpg" class="img-responsive">
+                        </div>
+                    </div>
+
+                    <div class="row tbsblock">
+                        <div class="col-md-4 col-md-offset-8 tbssectionbutton">
+                            <button type="button" class="btn btn-block tbs-button tbs-button-orange tbs-orange">立即订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

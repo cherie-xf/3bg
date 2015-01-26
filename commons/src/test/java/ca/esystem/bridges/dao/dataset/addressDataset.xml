@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+	<country country_code="CAN" country="Canada" />
+	<country country_code="CHN" country="China" />
+	<city city_code="CT01" city="vancouver" country_code="CAN"
+		priority="10" />
+	<city city_code="CT02" country_code="CAN" priority="10" />
+	<address address_id="1" address="this is address1" district="this is district1"
+		city_code="CT01" postal_code="V5J0A4" user_id="1" created_by="1"
+		modified_by="1" />
+	<address address_id="2" address="this is address2222" district="this is district2222"
+		city_code="CT02" postal_code="V5J0E4" user_id="2" created_by="2"
+		modified_by="2" />
+</dataset>

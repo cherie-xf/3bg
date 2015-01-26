@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+	<category category_id="010101" category_name="category 010101"
+		english_name="first level" created_at="2014-11-27 13:30:04"
+		created_by="1" modified_at="2014-11-27 13:30:04" modified_by="1"
+		is_deleted="0" />
+	<category category_id="010102" category_name="category 010102"
+		english_name="first level" created_at="2014-11-27 13:30:04"
+		created_by="2" modified_at="2014-11-27 13:30:04" modified_by="2"
+		is_deleted="0" />
+	<category category_id="101010" category_name="category 101010"
+		english_name="first level" created_at="2014-11-27 13:30:04"
+		created_by="2" modified_at="2014-11-27 13:30:04" modified_by="2"
+		is_deleted="0" />
+
+	<recommend_level recommend_level_id="2"
+		recommend_level_name="无" />
+	<recommend_level recommend_level_id="3"
+		recommend_level_name="低" />
+
+	<member_type type_code="B1" type_name="普通服务商" />
+	<member_type type_code="C1" type_name="普通会员" />
+	<member_type type_code="S1" type_name="普通客服" />
+
+	<member member_id="B0001001" user_id="1" type_code="B1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="1" created_at="2014-11-27 13:30:04" modified_by="1" />
+	<member member_id="C0001001" user_id="2" type_code="C1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="2" created_at="2014-11-27 13:30:04" modified_by="2" />
+	<member member_id="B0001002" user_id="2" type_code="S1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="2" created_at="2014-11-27 13:30:04" modified_by="2" />
+
+	<service_product service_id="1" service_title="service product test"
+		category_id="010101" member_id="B0001001" face_negotiable="0"
+		basic_price="55" unit_price="15" unit_id="HOUR" tax_included="0"
+		gst_rate="5" pst_rate="7" description="abcde" warrant="abc"
+		recommend_level_id="2" meta_keywords="a,b,c" meta_desc="abcd"
+		created_at="2014-11-27 13:30:04" created_by="1" modified_at="2014-11-27 13:30:04"
+		modified_by="1" is_deleted="0" status_id="20" />
+	<service_area service_id="1" city_code="CT01" />
+</dataset>

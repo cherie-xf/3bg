@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:jee="http://www.springframework.org/schema/jee"
+	   xmlns:aop="http://www.springframework.org/schema/aop" 
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+    
+    
+    <bean id="dataSourceMysql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}?useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="initialSize" value="${jdbc.initialSize}" />
+        <property name="maxActive" value="${jdbc.maxActive}"/>  
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>  
+        <property name="maxWait" value="${jdbc.maxWait}"/>  
+        <property name="defaultAutoCommit" value="${jdbc.defaultAutoCommit}"/> 
+        <property name="validationQuery" value="${jdbc.validationQuery}"/>
+    </bean>
+    
+    <!-- 
+    <bean id="dataSourceMysql" class="org.springframework.jndi.JndiObjectFactoryBean">
+           <property name="resourceRef" value="true" /> 
+           <property name="jndiName" value="jdbc/3bdb"/>
+    </bean>
+    -->
+     
+	<!-- the transactional advice bean below) -->
+ 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="dataSourceMysql"/>
+	</bean>	 
+ 
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+	  <tx:attributes>
+	    <tx:method name="insert*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="add*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="update*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="delete*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="remove*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="do*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="reSend*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+		<tx:method name="import*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+		<tx:method name="submit*" rollback-for="Exception,RuntimeException" propagation="REQUIRED"/>
+	    <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
+	  </tx:attributes>
+	</tx:advice>
+
+	<!-- ensure that the above transactional advice runs for any execution
+	aspectjrt.jar;aspectjweaver.jar are necessary-->
+
+	<aop:config>
+	  <aop:pointcut id="ServiceOperation" expression="execution(* ca.esystem.bridges.service.impl.*.*(..))"/>
+	  <aop:advisor advice-ref="txAdvice" pointcut-ref="ServiceOperation"/>
+	</aop:config>
+
+	
+	<bean id="MySqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceMysql" />
+		<property name="configLocation" value="classpath:/config/mybatis-config.xml" />
+		<property name="typeAliasesPackage" value="ca.esystem.bridges.domain"/>
+		<property name="mapperLocations" value="classpath:ca/esystem/bridges/dao/*.xml"></property>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="MySqlSessionFactory" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="ca.esystem.bridges.dao" />
+		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
+	</bean>
+
+	
+
+</beans>

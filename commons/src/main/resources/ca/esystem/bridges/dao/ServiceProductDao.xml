@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.ServiceProductDao">
+ 
+  <sql id="SelectFields">
+    SELECT a.cover_img, 
+    	   a.service_id, 
+    	   a.service_title, 
+    	   b.category_name,
+    	   a.member_id,
+    	   a.status_id,
+    	   a.recommend_level_id,
+    	   b.category_name,
+    	   c.status,
+    	   d.recommend_level_name
+    FROM service_product a left join category b on a.category_id = b.category_id
+    left join service_status c on a.status_id = c.status_id
+    left join recommend_level d on a.recommend_level_id = d.recommend_level_id
+  </sql>
+   
+  <sql id="WhereClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="member_id != null and member_id != ''">
+	       AND a.member_id like '%${member_id}%' 
+	    </if>   
+	    <if test="service_title != null and service_title != ''">
+	       AND a.service_title like '%${service_title}%'
+	    </if>
+	    <if test="category_id != null and category_id != ''">
+	       AND a.category_id like '%${category_id}%'
+	    </if>
+	    <if test="status_id != null and status_id != ''">
+	       AND a.status_id = #{status_id}
+	    </if>
+	    <if test="recommend_level_id != null">
+	       AND a.recommend_level_id = #{recommend_level_id}
+	    </if>
+	       AND a.is_deleted = 0
+    </trim>
+  </sql>
+    
+  <select id="queryListByCondition" resultType="ServiceProduct" parameterType="ServiceProduct">
+    <include refid="SelectFields"/>
+    <include refid="WhereClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+  </select> 
+  
+  <select id="queryCountRowsByCondition" parameterType="ServiceProduct" resultType="java.lang.Integer" >
+    SELECT count(a.service_id) 
+    FROM service_product a left join category b on a.category_id = b.category_id
+    <include refid="WhereClause"/>
+  </select>  
+  
+  <select id="queryObjectByCondition" resultType="ServiceProduct" parameterType="ServiceProduct" >
+    SELECT * FROM service_product 
+    <where>
+      service_id = #{service_id} AND is_deleted = 0
+    </where>
+  </select>
+  
+ <select id="queryServiceProductByUserId" parameterType="ServiceProduct" resultType="ServiceProduct">
+ 	SELECT a.cover_img, 
+    	   a.service_id, 
+    	   a.service_title,
+    	   a.category_id, 
+    	   a.member_id,
+    	   a.recommend_level_id,
+    	   a.status_id,
+    	   b.category_name,
+    	   c.status
+    FROM service_product a left join category b on a.category_id = b.category_id
+    left join service_status c on a.status_id = c.status_id
+    left join member d on a.member_id = d.member_id
+    left join user e on d.user_id = e.user_id
+ 
+	<if test="user_id > 0">
+	 	WHERE e.user_id = #{user_id}
+	</if>
+	<if test="member_id != null and member_id != ''">
+	 	AND d.member_id like '%${member_id}%'
+	</if>
+	 	AND a.is_deleted = 0
+	 	
+	<if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+ </select>
+ 
+ <insert id="insert" parameterType="ServiceProduct" useGeneratedKeys="true" keyProperty="service_id" keyColumn="service_id">
+    INSERT INTO service_product (
+      <if test="service_title != null and service_title != ''">
+        service_title,
+      </if>
+      <if test="cover_img != null and cover_img !=''">
+        cover_img,
+      </if>
+      <if test="category_id != null and category_id != ''">
+        category_id,
+      </if>
+      <if test="member_id != null and member_id != ''">
+        member_id,
+      </if>
+      <if test="face_negotiable != null">
+        face_negotiable,
+      </if>
+      <if test="basic_price != null and basic_price != ''">
+        basic_price,
+      </if>
+       <if test="unit_price != null and unit_price != ''">
+        unit_price,
+      </if>
+       <if test="unit_id != null and unit_id != ''">
+        unit_id,
+      </if>
+      <if test="tax_included != null">
+        tax_included,
+      </if>
+       <if test="gst_rate != null">
+        gst_rate,
+      </if>
+       <if test="pst_rate != null">
+        pst_rate,
+      </if>      
+      <if test="description != null and description != ''">
+        description,
+      </if>
+      <if test="warrant != null and warrant != ''">
+        warrant,
+      </if>
+      <if test="status_id != null and status_id != ''">
+        status_id,
+      </if>
+      <if test="recommend_level_id != null">
+        recommend_level_id,
+      </if>
+      <if test="meta_keywords != null and meta_keywords != ''">
+        meta_keywords,
+      </if>
+      <if test="meta_desc != null and meta_desc != ''">
+        meta_desc,
+      </if>
+	  <if test="created_by > 0">
+        created_by,
+      </if>
+      <if test="created_at != null">
+        created_at
+      </if>       
+      )
+    values
+    (
+   	  <if test="service_title != null and service_title != ''">
+        #{service_title},
+      </if>
+      <if test="cover_img != null and cover_img !=''">
+        #{cover_img},
+      </if>
+      <if test="category_id != null and category_id != ''">
+        #{category_id},
+      </if>
+      <if test="member_id != null and member_id != ''">
+        #{member_id},
+      </if>
+      <if test="face_negotiable != null">
+        #{face_negotiable},
+      </if>
+      <if test="basic_price != null and basic_price != ''">
+        #{basic_price},
+      </if>
+       <if test="unit_price != null and unit_price != ''">
+        #{unit_price},
+      </if>
+       <if test="unit_id != null and unit_id != ''">
+        #{unit_id},
+      </if>
+      <if test="tax_included != null">
+        #{tax_included},
+      </if>
+      <if test="gst_rate != null">
+        #{gst_rate},
+      </if>
+       <if test="pst_rate != null">
+        #{pst_rate},
+      </if>      
+      <if test="description != null and description != ''">
+        #{description},
+      </if>
+      <if test="warrant != null and warrant != ''">
+        #{warrant},
+      </if>
+      <if test="status_id != null and status_id != ''">
+        #{status_id},
+      </if>
+      <if test="recommend_level_id != null">
+        #{recommend_level_id},
+      </if>
+      <if test="meta_keywords != null and meta_keywords != ''">
+        #{meta_keywords},
+      </if>
+      <if test="meta_desc != null and meta_desc != ''">
+        #{meta_desc},
+      </if>
+	  <if test="created_by > 0">
+        #{created_by},
+      </if>
+      <if test="created_at != null">
+        #{created_at}
+      </if>
+      )
+  </insert>  
+
+  <update id="update" parameterType="ServiceProduct">
+    UPDATE service_product
+    <set>
+      <if test="service_title != null">
+        service_title = #{service_title},
+      </if>
+      <if test="cover_img != null">
+        cover_img = #{cover_img},
+      </if>
+      <if test="category_id != null">
+        category_id = #{category_id},
+      </if>
+      <if test="member_id != null">
+        member_id = #{member_id},
+      </if>
+      <if test="face_negotiable != null">
+        face_negotiable = #{face_negotiable},
+      </if>
+      <if test="basic_price != null">
+        basic_price = #{basic_price},
+      </if>
+       <if test="unit_price != null">
+        unit_price = #{unit_price},
+      </if>
+       <if test="unit_id != null">
+        unit_id = #{unit_id},
+      </if>
+      <if test="tax_included != null">
+        tax_included = #{tax_included},
+      </if>
+       <if test="gst_rate != null">
+        gst_rate = #{gst_rate},
+      </if>
+       <if test="pst_rate != null">
+        pst_rate = #{pst_rate},
+      </if>      
+      <if test="description != null">
+        description = #{description},
+      </if>
+      <if test="warrant != null">
+        warrant = #{warrant},
+      </if>
+      <if test="status_id != null">
+        status_id = #{status_id},
+      </if>
+      <if test="recommend_level_id != null">
+        recommend_level_id = #{recommend_level_id},
+      </if>
+      <if test="meta_keywords != null">
+        meta_keywords = #{meta_keywords},
+      </if>
+      <if test="meta_desc != null">
+        meta_desc = #{meta_desc},
+      </if>
+      <if test="modified_by > 0">
+        modified_by = #{modified_by},
+      </if>
+      <if test="modified_at != null">
+        modified_at = #{modified_at},
+      </if>
+    </set>
+    WHERE service_id = #{service_id} AND is_deleted = 0
+  </update>
+
+  <update id="delete" parameterType="ServiceProduct">
+    UPDATE service_product
+    <set>
+      <if test="modified_by > 0">
+        modified_by = #{modified_by},
+      </if>
+      <if test="modified_at != null">
+        modified_at = #{modified_at},
+      </if>
+      	is_deleted = 1
+    </set>
+    WHERE service_id = #{service_id} AND is_deleted = 0
+  </update> 
+  	
+  <insert id="insertServiceArea" parameterType="ServiceArea" useGeneratedKeys="false" >
+    	INSERT INTO service_area(
+    		service_id,
+    		city_code
+    		)
+    	value(
+    		#{service_id},
+    		#{city_code})    
+  </insert>
+  
+  <select id="queryServiceAreaList" resultType="ServiceArea" parameterType="ServiceArea" >
+    	SELECT 
+    		a.service_id, 
+    		a.city_code, 
+    		b.city
+    	FROM service_area a left join city b on a.city_code = b.city_code
+    <where>
+      	a.service_id = #{service_id}
+    </where>
+  </select>
+  
+  <delete
+	  id="deleteServiceArea"
+	  parameterType="ServiceArea"
+	  flushCache="true"
+	  statementType="PREPARED"
+	  timeout="20">
+	  	delete from service_area where service_id = #{service_id} and city_code = #{city_code}
+   </delete>
+   
+   
+   <select id="queryServiceProductForIndex" resultType="ServiceProduct" parameterType="ServiceProduct">
+	    SELECT a.service_id,
+	    	   a.service_title, 
+			   a.meta_desc,
+			   a.cover_img, 
+			   a.category_id,
+	    	   b.category_name,
+	    	   a.member_id,
+	    	   a.status_id,
+	    	   a.recommend_level_id,
+			   c.type_code
+	    FROM service_product a left join category b on a.category_id = b.category_id
+		left join member c  on a.member_id=c.member_id
+		WHERE a.is_deleted=0 
+		<if test="category_id != null and category_id != ''">
+	       AND a.category_id like '%${category_id}%' 
+	    </if>   
+		ORDER BY a.recommend_level_id desc, c.type_code desc
+		<if test="pagination.pageSize>0">
+      	LIMIT #{pagination.skip},#{pagination.pageSize}
+        </if> 
+   </select>
+   
+  
+</mapper>

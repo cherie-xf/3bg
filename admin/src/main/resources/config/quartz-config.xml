@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- Bean -->
+	<bean name="basicJob" class="ca.esystem.bridges.job.BasicJob" />
+
+	<!-- Bean -->
+	<bean name="ticketService" class="ca.esystem.bridges.service.impl.TicketServiceImpl" />
+
+	<!-- Bean -->
+	<bean name="MembershipService" class="ca.esystem.bridges.service.impl.MembershipServiceImpl" />
+
+	<!-- Bean -->
+	<bean name="UserService"
+		class="ca.esystem.bridges.service.impl.UserServiceImpl" />
+		
+	<!-- Bean -->
+	<bean name="UserProfileService"
+		class="ca.esystem.bridges.service.impl.UserProfileServiceImpl" />
+				
+	<!-- Bean -->
+	<bean name="UserAccountService"
+		class="ca.esystem.bridges.service.impl.UserAccountServiceImpl" />
+
+	<!-- Bean -->
+	<bean name="ServiceOrderMngService"
+		class="ca.esystem.bridges.service.impl.ServiceOrderMngServiceImpl" />
+
+	<!-- Bean -->
+	<bean name="SmsMessageService"
+		class="ca.esystem.bridges.service.impl.SmsMessageServiceImpl" />
+		
+	<!-- Bean -->
+	<bean name="orderProcessingService"
+		class="ca.esystem.bridges.service.impl.OrderProcessingServiceImpl" />
+
+	<!-- Bean -->
+	<bean name="ticketProcessingJob" class="ca.esystem.bridges.job.TicketProcessingJob">
+		<property name="ticketService" ref="ticketService" />
+		<property name="membershipService" ref="MembershipService" />
+	</bean>
+
+	<!-- Bean -->
+	<bean name="orderProcessingJob" class="ca.esystem.bridges.job.OrderProcessingJob">
+		<property name="orderProcessingService" ref="orderProcessingService" />
+	</bean>
+
+	<!-- Job Detail -->
+	<bean id="echoJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="basicJob" />
+		<property name="targetMethod" value="echo" />
+	</bean>
+
+	<!-- Job Schedule -->
+	<bean id="echoJobSimpleTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="echoJobDetail" />
+		<property name="repeatInterval" value="60000" /> <!-- Repeat every 60s -->
+		<property name="startDelay" value="10000" /> <!-- Start to run after 10s -->
+	</bean>
+
+	<!-- Job Detail -->
+	<bean id="assignWaitingTicketJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="ticketProcessingJob" />
+		<property name="targetMethod" value="assignWaitingTicket" />
+	</bean>
+
+	<!-- Job Schedule -->
+	<bean id="assignWaitingTicketJobSimpleTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="assignWaitingTicketJobDetail" />
+		<property name="repeatInterval" value="60000" /> <!-- Repeat every 60s -->
+		<property name="startDelay" value="10000" /> <!-- Start to run after 10s -->
+	</bean>
+
+
+	<!-- Job Detail -->
+	<bean id="processOrderJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="orderProcessingJob" />
+		<property name="targetMethod" value="processOrder" />
+	</bean>
+
+	<!-- Job Schedule -->
+	<bean id="processOrderJobSimpleTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="processOrderJobDetail" />
+		<property name="repeatInterval" value="60000" /> <!-- Repeat every 60s -->
+		<property name="startDelay" value="10000" /> <!-- Start to run after 10s -->
+	</bean>
+
+	<!-- Scheduler -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="echoJobSimpleTrigger" />
+				<ref bean="assignWaitingTicketJobSimpleTrigger" />
+				<ref bean="processOrderJobSimpleTrigger" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

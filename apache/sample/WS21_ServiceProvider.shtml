@@ -1,0 +1,158 @@
+﻿<!--#include file="header.shtml" -->
+
+<div class="container tbsorangea">
+    <div class="main tbsservice">
+        <div class="col-sm-12">
+            <a>居家生活</a> > <a>美容美发</a> > <a>美甲</a> > 音速美甲
+        </div>
+        <div class="col-sm-12 tbsservicetitile">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="tbsservicetitileleft">
+                        <span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;音速美甲
+                    </div>            
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-block tbs-button tbs-button-orange tbs-orange">签约供应商&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>           
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 tbservicecontent">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="/images/tbsnailshop.jpg" class="img-responsive">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;收藏
+                                    <span class="glyphicon glyphicon-heart" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>  
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;关注
+                                    <span class="glyphicon glyphicon-eye-open" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;分享
+                                    <span class="weibo-m"></span><span class="fb-m"></span>&nbsp;<span class="glyphicon glyphicon-share-alt" style="color:#ffffff;font-size:13px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockgrey">
+                                <div class="tbsleftbarblockbolditem" style="font-size:16px;">服务商信息：</div>
+                                <div class="tbsleftbarblockbolditem">公司名称： 音速美甲</div>
+                                <div class="tbsleftbarblockbolditem">分类标签：<a>居家生活</a> > <a>美容美发</a> > <a>美甲</a> > 音速美甲</div>
+                                <div class="tbsleftbarblockbolditem">联系方式：</a></div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-map-marker"></span> &nbsp; Sonic Nailing Inc, 2565 Alma Street</div>
+                                <div class="tbsleftbarblockitem">Vancouver, BC V6R 386</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-envelope"></span> &nbsp; abc@gmail.com</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-phone-alt"></span> &nbsp; 604-368-0085</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-time"></span> &nbsp; 9:00am-5:00pm</div>
+                                <div class="tbsleftbarblockitem"><span class="glyphicon glyphicon-globe"></span> &nbsp; www.abcnailing.com</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbstitle">
+                                服务商介绍：
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockbolditem">公司名称：ABC美甲服务</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockbolditem">
+                                三桥评价：<div style="display:inline-block"><input value="4.5" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" disabled="disabled"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tbsleftbarblockitem">服务商描述：服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述，服务产品描述
+                            </div>
+                            <div class="tbsleftbarblockitem">
+                            这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，这里是服务产品描述，
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row tbsblock">
+                        <div class="col-sm-12">
+                            <div class="tbstitle">
+                                提供产品：
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- start a recommended section -->
+            <div class="col-md-6 tbsrecommendedsection">
+                <img class="img-responsive" src="/images/tbsnailing.jpg" />
+                <div class="row">
+                    <div class="col-xs-10">
+                            <a href="WS20_ServiceProduct.shtml" class="tbsrecommenedtitle">ABC美甲服务</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href=""><span class="glyphicon glyphicon-earphone" style="color:#03a9dc;font-size:10px;"></span>&nbsp;预约服务</a>
+                    </div>
+                    <div class="col-xs-2">
+                            <span class="glyphicon glyphicon-check" style="color:#ff713c;text-align:right;"></span>
+                    </div>
+                </div>
+                <div class="row"><div class="col-md-12">
+                    <p class="tbsrecommenedintro">关于服务的点评和简介,关于服务的点评和简介,关于服务的点评和简介,关于服务的点评和简介,关于服务的点评和简介,关于服务的点评和简介,关于服务的点评和简介,关于服务的点评和简介</p>
+                </div></div>
+                <div class="row"><div class="col-md-12">
+                    <span class="tbs-tag-living">居家生活</span>
+                </div></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="tbsrecommendedshare row">
+                                &nbsp;推荐指数：
+                                <span class="glyphicon glyphicon-star" style="color:#ffffff;font-size:6px;"></span><span class="glyphicon glyphicon-star" style="color:#ffffff;font-size:6px;"></span><span class="glyphicon glyphicon-star" style="color:#ffffff;font-size:6px;"></span><span class="glyphicon glyphicon-star" style="color:#ffffff;font-size:6px;"></span><span class="glyphicon glyphicon-star" style="color:#ffffff;font-size:6px;"></span>
+                                
+                            </div>  
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="tbsrecommendedshare row">
+                                &nbsp;<span class="glyphicon glyphicon-comment" style="color:#ffffff;font-size:6px;"></span>&nbsp;查看评价
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of a recommended section -->
+                    </div>
+
+                    <div class="row tbsblock">
+                        <div class="col-md-4 col-md-offset-8 tbssectionbutton">
+                            <button type="button" class="btn btn-block tbs-button tbs-button-orange tbs-orange">签约供应商&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

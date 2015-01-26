@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.Search_MissedDao">
+
+	<sql id="SelectFields">
+		SELECT
+		a.id,a.keyword,a.searched_at,a.user_id,a.user_ip_address,a.is_deleted
+		FROM search_missed a 
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="keyword!=null and keyword!=''">
+				AND a.keyword like '%${keyword}%'
+			</if>
+				AND a.is_deleted =0
+			
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="Search_Missed"
+		parameterType="Search_Missed">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="Search_Missed"
+		resultType="java.lang.Integer">
+		SELECT count(a.id)
+		FROM search_missed a 
+		
+		<include refid="WhereClause" />
+	</select>
+
+
+	<select id="queryObjectByCondition" resultType="Search_Missed"
+		parameterType="Search_Missed">
+		SELECT
+		a.id,a.keyword,a.searched_at,a.user_id,a.user_ip_address,a.is_deleted
+		FROM search_missed a 
+		<where>
+			a.id=#{id} and a.is_deleted =0
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="Search_Missed" useGeneratedKeys="true"
+		keyProperty="id" keyColumn="id">
+		INSERT INTO search_missed (
+		<if test="keyword!=null and keyword!=''">
+			keyword,
+		</if>
+		<if test="searched_at!=null">
+			searched_at,
+		</if>
+		<if test="user_id!=null">
+			user_id,
+		</if>
+		<if test="user_ip_address!=null and user_ip_address!=''">
+			user_ip_address,
+		</if>
+			is_deleted
+		
+		)
+		values
+		(
+		<if test="keyword!=null and keyword!=''">
+			#{keyword},
+		</if>
+		<if test="searched_at!=null">
+			#{searched_at},
+		</if>
+		<if test="user_id!=null">
+			#{user_id},
+		</if>
+		<if test="user_ip_address!=null and user_ip_address!=''">
+			#{user_ip_address},
+		</if>
+		#{is_deleted}
+		)
+	</insert>
+
+	<update id="delete" parameterType="Search_Missed">
+		UPDATE search_missed set is_deleted=1
+		WHERE id=#{id} 
+	</update>
+</mapper>

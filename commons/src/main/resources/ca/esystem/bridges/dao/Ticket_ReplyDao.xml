@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.Ticket_ReplyDao">
+
+	<sql id="SelectFields">
+		SELECT a.id,a.reply_msg,a.reply_by,a.replier_name,a.reply_time,a.ticket_id
+		FROM ticket_reply a
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="replier_name!=null and replier_name!=''">
+				AND a.replier_name like '%${replier_name}%'
+			</if>
+			<if test="reply_by>0">
+				AND a.reply_by = #{reply_by}
+			</if>
+			<if test="ticket_id>0">
+				AND a.ticket_id=#{ticket_id}
+			</if>
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="Ticket_Reply"
+		parameterType="Ticket_Reply">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="Ticket_Reply"
+		resultType="java.lang.Integer">
+		SELECT count(a.id)
+		FROM ticket_reply a
+		<include refid="WhereClause" />
+	</select>
+
+	<select id="queryObjectByCondition" resultType="Ticket_Reply"
+		parameterType="Ticket_Reply">
+		SELECT * FROM ticket_reply a
+		<where>
+			a.id=#{id}
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="Ticket_Reply"
+		useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO ticket_reply (
+		<if test="reply_msg!=null and reply_msg!=''">
+			reply_msg,
+		</if>
+		<if test="reply_by>0">
+			reply_by,
+		</if>
+		<if test="replier_name!=null and replier_name!=''">
+			replier_name,
+		</if>
+		<if test="reply_time!=null">
+			reply_time,
+		</if>
+		<if test="created_at!=null">
+			reply_msg,
+		</if>
+
+		ticket_id
+		)
+		values
+		(
+		<if test="reply_msg!=null and reply_msg!=''">
+			#{reply_msg},
+		</if>
+		<if test="reply_by>0">
+			#{reply_by},
+		</if>
+		<if test="replier_name!=null and replier_name!=''">
+			#{replier_name},
+		</if>
+		<if test="reply_time!=null">
+			#{reply_time},
+		</if>
+		
+		#{ticket_id}
+
+		)
+	</insert>
+
+	<update id="update" parameterType="Ticket_Reply">
+		UPDATE ticket_reply
+		<set>
+			<if test="reply_msg!=null and reply_msg!=''">
+				reply_msg=#{reply_msg},
+			</if>
+			<if test="reply_by>0">
+				reply_by=#{reply_by},
+			</if>
+			<if test="replier_name!=null and replier_name!=''">
+				replier_name=#{replier_name},
+			</if>
+			<if test="reply_time!=null">
+				reply_time=#{reply_time},
+			</if>
+			ticket_id=#{ticket_id}
+		</set>
+		WHERE id=#{id}
+	</update>
+
+</mapper>

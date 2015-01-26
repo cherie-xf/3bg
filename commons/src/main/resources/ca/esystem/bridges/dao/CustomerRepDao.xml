@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.CustomerRepDao">
+ 
+  <sql id="SelectFields">
+    SELECT a.member_id, 
+    	   a.user_id, 
+    	   a.type_code, 
+    	   b.first_name as firstName,
+    	   b.last_name as lastName,
+    	   concat(b.first_name,b.last_name) as name,
+    	   b.email,
+    	   b.phone,
+    	   b.status,
+    	   c.preferred_language
+    	  
+    FROM member a left join user b on a.user_id = b.user_id
+    left join user_profile c on a.user_id = c.user_id
+    
+  </sql>
+   
+  <sql id="WhereClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="member_id != null and member_id != ''">
+	       AND a.member_id like '%${member_id}%' 
+	    </if>   
+	    <if test="type_code != null and type_code != ''">
+	       AND a.type_code like '${type_code}%'
+	    </if>
+	    <if test="user_id != null and user_id > 0">
+	       AND a.user_id = #{user_id}
+	    </if>
+	    <if test="email != null and email != ''">
+	       AND b.email like '%${email}%' 
+	    </if>  
+	    <if test="phone != null and phone != ''">
+	       AND b.phone like '%${phone}%' 
+	    </if>  
+	    <if test="status != null and status != ''">
+	       AND b.status =#{status}
+	    </if>
+	    <if test="preferred_language != null and preferred_language != ''">
+	       AND c.preferred_language like '%${preferred_language}%' 
+	    </if>
+	       AND a.is_deleted = 0 AND a.type_code in ('S1','S2','S3')
+    </trim>
+  </sql>
+    
+  <select id="queryListByCondition" resultType="CustomerRepInfo" parameterType="CustomerRepInfo">
+    <include refid="SelectFields"/>
+    <include refid="WhereClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+  </select> 
+  
+  <select id="queryCountRowsByCondition" parameterType="CustomerRepInfo" resultType="java.lang.Integer" >
+    SELECT count(a.member_id) 
+    FROM member a left join user b on a.user_id = b.user_id 
+    <include refid="WhereClause"/>
+  </select>  
+  
+  <select id="queryObjectByCondition" resultType="CustomerRepInfo" parameterType="CustomerRepInfo" >
+    SELECT a.member_id, 
+    	   a.user_id, 
+    	   a.type_code, 
+    	   b.first_name as firstName,
+    	   b.last_name as lastName,
+    	   concat(b.first_name,b.last_name) as name,
+    	   b.email,
+    	   b.phone,
+    	   b.status,
+    	   c.preferred_language
+    	  
+    FROM member a left join user b on a.user_id = b.user_id
+    left join user_profile c on a.user_id = c.user_id
+    <where>
+      a.member_id = #{member_id} AND a.is_deleted = 0
+    </where>
+  </select>
+ 
+ 
+</mapper>

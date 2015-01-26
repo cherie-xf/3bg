@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+	<search_missed id="1" keyword="job" user_id="1"
+		user_ip_address="127.0.0.1" searched_at="2014-11-27 13:30:04"
+		is_deleted="0" />
+	<search_missed id="2" keyword="music" user_id="1"
+		user_ip_address="127.0.0.1" searched_at="2014-11-27 13:30:04"
+		is_deleted="0" />
+</dataset>

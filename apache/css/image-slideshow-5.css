@@ -1,0 +1,16 @@
+/*#mainContainer { margin: 0 auto; width: 730px; text-align: left; background-color: #FFF; padding: 3px; border: 3px solid #317082; }*/
+/* End of demo CSS */
+#DHTMLgoodies_panel_one, #DHTMLgoodies_arrows, #DHTMLgoodies_thumbs { width: 100%; }
+#DHTMLgoodies_panel_one { float: left; }
+#DHTMLgoodies_thumbs { overflow: hidden;	/* Don't change this */ height: auto;	/* Height of thumbnail div */ position: relative;	/* Never change this */ float: left; }
+#DHTMLgoodies_largeImage { width: 100%; height:auto; float: left;margin-bottom: 10px; }
+#DHTMLgoodies_largeImage img {width: 100%; height:auto; }
+.strip_of_thumbnails { width: 100%; }
+.strip_of_thumbnails div { width: 80px; height: 80px; float: left;margin-right:10px; }
+.strip_of_thumbnails div img{width: 100%;height: auto;}
+.strip_of_thumbnails img { border: 0px; }
+.strip_of_thumbnails .activeImage {	/* Active thumbnail */ border: 1px solid #ddd;	/* Green border around active thumbnail */ }
+.leftArrow { float: left; }
+.rightArrow { float: right; }
+#DHTMLgoodies_thumbs_inner { position: relative;	/* Never change this */ width: 100%; }
+#DHTMLgoodies_arrows{display:none;}

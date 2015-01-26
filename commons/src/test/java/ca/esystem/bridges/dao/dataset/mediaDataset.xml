@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+	<media media_id="1" thumb="this is thumb" bigpic="this is bigpic"
+		title="this is title" ext_name="1" description="this is description" />
+	<media media_id="2" thumb="this is thumb2" bigpic="this is bigpic2"
+		title="this is title2" ext_name="2" description="this is description2" />
+</dataset>

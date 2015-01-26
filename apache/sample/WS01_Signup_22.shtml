@@ -1,0 +1,82 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<div class="col-sm-4">
+    <img src="/images/1.jpg" class="img-responsive hidden-xs"
+    alt="Responsive image">
+</div>
+<div class="col-sm-8">
+    <form id="signupForm" class="form-horizontal" action="/web/signup.flow;jsessionid=11C0A281982B39A0BDD5F8038082C3F6?execution=e1s1" method="post">
+     <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group" id="mima">
+                <label for="password" class="col-sm-3 control-label"> <h4>消费者会员申请</h4></label>
+                <div class="col-sm-8">
+                  
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group" id="mima">
+                <label for="password" class="col-sm-3 control-label">申请会员类型</label>
+                <div class="col-sm-8">
+                   <select class="form-control">
+                      <option>普通会员（三桥提供）</option>
+                      <option>VIP会员（三桥提供）</option>
+                      
+                      
+                  </select>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-3 control-label">普通会员</label>
+            <div class="col-sm-8">
+             <h5>manicurist darkens subtly</h5>
+             <h5>persecutes swamp tranquilly</h5>
+             <h5>ah! a difficult virgin</h5>
+         </div>
+     </div>
+ </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-3 control-label">VIP会员</label>
+            <div class="col-sm-8">
+             <h5>manicurist darkens subtly</h5>
+             <h5>persecutes swamp tranquilly</h5>
+             <h5>ah! a difficult virgin</h5>
+         </div>
+     </div>
+ </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group" id="mima">
+            <label for="password" class="col-sm-3 control-label"></label>
+            <div class="col-sm-8" style="text-align:right;">
+               <button type="submit" class="btn btn-success" name="_eventId_next" disabled="disabled" id="nextbutton"> 确认 </button>
+           </div>
+       </div>
+   </div>
+</div>          
+
+
+</form>
+</div>
+
+</div>
+</div>
+
+ <!--#include file="footer.shtml" -->

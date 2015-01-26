@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.UserAccountDao">
+
+	<sql id="SelectFields">
+		SELECT u.user_id as id, u.email as email, u.phone as phone,
+		u.first_name as firstName, u.last_name as lastName, u.preferred_name as
+		preferredName,
+		u.enabled as enabled, u.account_expired as accountExpired, u.credentials_expired
+		as credentialsExpired,
+		up.gender as gender, up.birthday as birthday, up.blood_type as bloodType,
+		up.preferred_language as preferredLanguage,
+		u.status as status,
+		u.created_by as createdBy,
+		u.created_at as createdAt,
+		u.modified_by as modifiedBy,
+		u.modified_at as modifiedAt,
+		u.is_deleted as deleted, up.is_deleted as profileDeleted
+		FROM user u JOIN user_profile up ON u.user_id = up.user_id
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="WHERE" prefixOverrides="AND |OR">
+			AND u.is_deleted = 0 and u.user_type = 0
+			<if test="phone != null and phone != ''" >
+				AND u.phone like '%${phone}%'
+			</if>
+			<if test="email != null and email != ''" >
+				AND u.email = #{email}
+			</if>
+			<if test="name != null and name != ''" >
+				AND (u.first_name like '%${name}%' OR u.last_name like '%${name}%' OR u.preferred_name like '%${name}%')
+			</if>
+			<if test="status != null" >
+				AND u.status = #{status}
+			</if>
+			<if test="user_type!=null">
+				AND u.user_type=#{user_type}
+			</if>										
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="UserAccount">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip}, #{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="UserAccountSearch"
+		resultType="java.lang.Integer">
+		SELECT count(u.user_id)
+		FROM user u JOIN user_profile up ON u.user_id = up.user_id
+		<include refid="WhereClause" />
+	</select>
+	
+	<select id="queryUserByService" resultType="UserAccount" parameterType="Integer">
+		<include refid="SelectFields" />
+		LEFT JOIN member m ON m.user_id = u.user_id
+		LEFT JOIN service_product sp ON m.member_id = sp.member_id
+		WHERE u.is_deleted = 0 AND sp.service_id = #{value}
+	</select>
+
+	<select id="queryUserByPhone" resultType="UserAccount" parameterType="String">
+		<include refid="SelectFields" />
+		WHERE u.is_deleted = 0 AND u.phone = #{value}
+	</select>
+		
+	<select id="queryUserListByService" resultType="UserAccount" parameterType="Integer">
+		<include refid="SelectFields" />
+		LEFT JOIN member m ON m.user_id = u.user_id
+		LEFT JOIN service_product sp ON m.member_id = sp.member_id
+		WHERE u.is_deleted = 0 AND sp.service_id = #{value}
+	</select>	
+</mapper>

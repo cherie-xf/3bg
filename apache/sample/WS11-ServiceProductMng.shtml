@@ -1,0 +1,124 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<!----------------左侧边栏---------------->
+<!--#include file="leftbar.html" -->
+
+<!----------------右侧边栏----------------> 
+<!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main1">-->
+<div class="col-sm-12 col-md-9">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<span class="tbsmanagementtitle">服务产品管理</span>
+			</div>
+		</div>
+	</div>
+	<form class="form-horizontal" role="form">
+		<div class="row">
+			<div class="col-sm-12 col-md-8">
+				<div class="form-group">
+					<label class="col-sm-12 col-md-3 control-label" id="ddid"  for="input-id" style="text-align:left">服务商会员ID</label>
+					<div class="col-sm-10 col-md-6 dropdown">
+						<div class="input-group">
+							<select class="form-control dateSelector" id="monthSelector">                     
+								<option value="0">B1090876 注册供应商</option>
+								<option value="01">B1090877 认证供应商</option>          
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3">
+						<div class="form-group">
+							<div class="col-xs-12 col-sm-8 col-md-8">
+								<button type="button" class="btn btn-default tbs-button tbs-orange tbs-button-orange">过滤</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-4" style="text-align:right">
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<a class="btn btn-default tbs-button tbs-orange tbs-button-orange" href="#">增加新服务产品</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-----------表格1---------------------->
+	<h4>未完成订单</h4>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover table-striped">
+					<tr>
+						<th>封面</th>
+						<th style="width:80;">产品ID</th>
+						<th style="width:200px;">产品名称</th>
+						<th style="width:48px;">分类</th>
+						<th style="width:90;">所属会员ID</th>
+						<th style="width:48px;">状态</th>
+						<th style="width:48px;">操作</th>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>						
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceproduct/update.html?service_id=3">专业报税 </a></td>
+						<td>美甲</td>
+						<td>B109876</td>
+						<td>上架</td>
+						<td><a href="#">修改</a><br>
+							<a href="#">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987345</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceproduct/update.html?service_id=2">英语教育，三月流利</a></td>
+						<td>脱毛</td>
+						<td>B109876</td>
+						<td>下架</td>
+						<td><a href="#">修改</a><br>
+							<a href="#">删除</a><br>
+							<a href="#">预览</a>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987341</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceproduct/update.html?service_id=1">学历公证直通车</a></td>
+						<td>美甲</td>
+						<td>B109876</td>
+						<td>上架</td>
+						<td><a href="#">修改</a><br>
+							<a href="#">删除</a>
+						</td>
+					</tr>	
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<nav style="float:right;">
+				<ul class="pagination">
+					<li class="disabled"><a href="#">上一页</a></li>
+					<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">下一页</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

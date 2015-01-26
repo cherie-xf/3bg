@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="JavaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		 
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" />
+		<property name="protocol" value="smtp" />
+		<property name="username" value="service@3qnow.com" />
+		<property name="password" value=">9DAHgq5" />
+		<property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">false</prop>
+				<prop key="mail.smtp.quitwait">false</prop>
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.socketFactory.fallback">false</prop>                
+                <prop key="mail.debug">true</prop>
+            </props>
+		</property>
+	</bean>
+	
+	 <bean id="RegisterMailMessage"
+	  class="org.springframework.mail.SimpleMailMessage"> 
+	  <property name="from" value="service@3qnow.com" />
+	  <property name="to" value="larrylin17@gmail.com" />
+	  <property name="subject" value="注册确认信" />
+	  <property name="text">
+	     <value>
+	    <![CDATA[
+
+			Dear %s,
+			
+			Thank you for registering account in 3qnow.com. Please click blow link to activate your account. 
+			
+			%s
+			
+			Or you can copy the link, and open it with your browser. 
+			
+			
+			Thank you again!
+			
+			 
+			Best regards,
+			
+			Tel: 604-998-1886
+
+	    ]]>
+	     </value>
+	    </property>
+	</bean>
+
+	 <bean id="ResetPassLetter"
+	  class="org.springframework.mail.SimpleMailMessage"> 
+	  <property name="from" value="service@vansky.com" />
+	  <property name="to" value="larrylin17@gmail.com" />
+	  <property name="subject" value="重置密码链接" />
+	  <property name="text">
+	     <value>
+	    <![CDATA[
+			Dear %s,
+			
+			Please copy the below link to a browser, then open the password reset page.
+			请点击复制链接到浏览器地址栏，然后进入密码重置页面。
+			
+			%s 
+			 
+			Best regards,
+			谢谢!
+			
+			3qnow.com
+			Tel: 604-998-1886
+	    ]]>
+	     </value>
+	    </property>
+	</bean>		
+	
+</beans>

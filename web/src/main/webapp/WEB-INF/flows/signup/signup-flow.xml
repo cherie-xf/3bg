@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+	
+	<!-- define the alias of domain object -->
+	<!-- 
+	<var name="questionset" class="ca.esystem.question.domain.QuestionSet"/>
+	<var name="question" class="ca.esystem.question.domain.Question"/>
+	 -->
+    <!-- 
+	<on-start>
+      <set name="flowScope.parentid" value="'QT'"></set>
+	  <evaluate expression="DictionaryService.queryChildrenList(parentid)" result="flowScope.settypelist"></evaluate> 
+	</on-start>
+	-->
+
+	<var name="signupForm" class="ca.esystem.bridges.domain.SignupForm"/>
+	
+	<view-state id="signup1" model="signupForm">
+	  <transition on="next" to="signup2">
+	  	<evaluate expression="SignupService.clickFirstNext(signupForm)"></evaluate>
+	  </transition>
+	</view-state>
+	
+	<view-state id="signup2" model="signupForm">
+	  <transition on="back" to="signup1">
+	  </transition>
+	  <transition on="finish" to="signup3">
+	    <evaluate expression="SignupService.submitSignupForm(signupForm)"></evaluate>
+	  </transition>
+	</view-state>
+	
+    <view-state id="signup3" model="signupForm">
+	</view-state>
+	
+	<!-- 
+	<view-state id="addquestionset" model="newQuestionSet">
+	  <on-render>    
+	    <evaluate expression="QuestionSetService.createEmptyQuestionSet()" result="viewScope.newQuestionSet"></evaluate>
+        <set name="viewScope.parentid" value="'QSTY'"></set>
+	    <evaluate expression="DictionaryService.queryChildrenList(parentid)" result="viewScope.settypelist"></evaluate>
+	  </on-render>
+	  <transition on="new" to="addquestion">
+		<evaluate expression="QuestionSetService.addRecord(newQuestionSet)" result="flowScope.questionset"></evaluate>
+	  </transition>
+	  <transition on="cancel" to="questionsetmng">
+	  </transition>
+	</view-state>
+	
+	<view-state id="addquestion" model="newQuestion">
+	  <on-render>
+	    <evaluate expression="QuestionService.createEmptyQuestion(questionset.setid)" result="viewScope.newQuestion"></evaluate>
+	    <set name="viewScope.answertype" value="'ANTY'"></set>
+	    <evaluate expression="DictionaryService.queryChildrenList(answertype)" result="viewScope.answertypelist"></evaluate>
+	  </on-render>
+	  <transition on="new" to="addquestion">
+	    <evaluate expression="QuestionService.addRecord(newQuestion)"></evaluate>
+	  </transition>	
+	  <transition on="finish" to="questionsetmng">
+	    <evaluate expression="QuestionService.addRecord(newQuestion)"></evaluate>
+	  </transition>
+	</view-state>
+	
+	<end-state id="questionsetmng" view="externalRedirect:servletRelative:../questionsetmng.html"></end-state>
+	 -->
+	<!-- 
+	<on-start>
+        <evaluate expression="ContactService.queryContactList(searchCriteria)" result="flowScope.contacts"/>
+    </on-start>
+    **********************************************************
+    ****When user answer question, the action-state 
+    ****helps users determine if there are more questions.
+    **********************************************************
+        <action-state id="moreAnswersNeeded">
+        <evaluate expression="interview.moreAnswersNeeded()" />
+        <transition on="yes" to="answerQuestions" />
+        <transition on="no" to="finish" />
+    </action-state>
+	 -->
+</flow>

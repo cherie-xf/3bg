@@ -1,0 +1,193 @@
+﻿<!--#include file="header.shtml" -->
+
+<div class="container">
+    <div class="main">
+        <div class="col-sm-12">
+            <div class="tbstitle">
+                服务产品搜索结果
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="tbsleftbarblockbolditem">分类标签： <a>居家生活</a> > <a>美容美发</a> > <a>美甲</a> </div>
+                </div>
+                <div class="col-sm-2 col-sm-offset-6">
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-orange tbs-orange">搜店铺&nbsp;&nbsp;<span class="glyphicon glyphicon-search" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="tbsleftbarblockbolditem">关键词： 关键词1 / 关键词2 / 关键词3</div>
+                    <div class="tbsleftbarblockgreyitem">搜索结果： 共21个结果</div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <nav style="float:right;">
+                            <ul class="pagination">
+                                <li class="disabled"><a href="#">上一页</a></li>
+                                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">下一页</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="row tbscategoryservice">
+                <div class="col-sm-3">
+                    <img src="/images/tbsnailshop.jpg" class="img-responsive tbscategoryserviceimg">
+                </div>
+                <div class="col-sm-7">
+                    <div class="tbsleftbarblockbolditem">服务名称： <a href="WS20_ServiceProduct.shtml">ABC美甲</a></div>
+                    <div class="tbsleftbarblockbolditem">商家名称： <a href="WS21_ServiceProvider.shtml">音速美甲</a> </div>
+                    <div class="tbsleftbarblockbolditem">价格： $20 每小时 </div>
+                    <div class="tbsleftbarblockbolditem">
+                        评价得分： <div style="display:inline-block"><input value="4.5" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" disabled="disabled"></div> &nbsp;&nbsp;(667次总评价次数)
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;收藏
+                                    <span class="glyphicon glyphicon-heart" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>  
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;关注
+                                    <span class="glyphicon glyphicon-eye-open" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;分享
+                                    <span class="weibo-m"></span><span class="fb-m"></span>&nbsp;<span class="glyphicon glyphicon-share-alt" style="color:#ffffff;font-size:13px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-orange tbs-orange">我要订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-blue tbs-blue">我要订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="row tbscategoryservice">
+                <div class="col-sm-3">
+                    <img src="/images/tbsnailshop.jpg" class="img-responsive tbscategoryserviceimg">
+                </div>
+                <div class="col-sm-7">
+                    <div class="tbsleftbarblockbolditem">服务名称： <a href="WS20_ServiceProduct.shtml">ABC美甲</a></div>
+                    <div class="tbsleftbarblockbolditem">商家名称： <a href="WS21_ServiceProvider.shtml">音速美甲</a> </div>
+                    <div class="tbsleftbarblockbolditem">价格： $20 每小时 </div>
+                    <div class="tbsleftbarblockbolditem">
+                        评价得分： <div style="display:inline-block"><input value="4.5" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" disabled="disabled"></div> &nbsp;&nbsp;(667次总评价次数)
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;收藏
+                                    <span class="glyphicon glyphicon-heart" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>  
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;关注
+                                    <span class="glyphicon glyphicon-eye-open" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;分享
+                                    <span class="weibo-m"></span><span class="fb-m"></span>&nbsp;<span class="glyphicon glyphicon-share-alt" style="color:#ffffff;font-size:13px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-orange tbs-orange">我要订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-blue tbs-blue">我要订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="row tbscategoryservice">
+                <div class="col-sm-3">
+                    <img src="/images/tbsnailshop.jpg" class="img-responsive tbscategoryserviceimg">
+                </div>
+                <div class="col-sm-7">
+                    <div class="tbsleftbarblockbolditem">服务名称： <a href="WS20_ServiceProduct.shtml">ABC美甲</a></div>
+                    <div class="tbsleftbarblockbolditem">商家名称： <a href="WS21_ServiceProvider.shtml">音速美甲</a> </div>
+                    <div class="tbsleftbarblockbolditem">价格： $20 每小时 </div>
+                    <div class="tbsleftbarblockbolditem">
+                        评价得分： <div style="display:inline-block"><input value="4.5" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" disabled="disabled"></div> &nbsp;&nbsp;(667次总评价次数)
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;收藏
+                                    <span class="glyphicon glyphicon-heart" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>  
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;关注
+                                    <span class="glyphicon glyphicon-eye-open" style="color:#ffffff;font-size:13px;"></span>                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tbsbookmarkfollowshare row">
+                                    &nbsp;分享
+                                    <span class="weibo-m"></span><span class="fb-m"></span>&nbsp;<span class="glyphicon glyphicon-share-alt" style="color:#ffffff;font-size:13px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-orange tbs-orange">我要订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                    <button type="submit" class="btn btn-block tbs-button tbs-button-blue tbs-blue">我要订购&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:13px;color:#ffffff"></span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <nav style="float:right;">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#">上一页</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
+                </nav>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

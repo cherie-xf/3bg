@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="1111@gmail.com" phone="77881111"
+		first_name="test1" last_name="Apple" preferred_name="A" />
+	<user user_id="2" email="2222@gmail.com" phone="77882222"
+		first_name="test2" last_name="Bravo" preferred_name="B" />
+	<user user_id="3" email="3333@gmail.com" phone="77883333"
+		first_name="test3" last_name="Cat" preferred_name="C" />
+	<user user_id="4" email="4444@gmail.com" phone="77884444"
+		first_name="test4" last_name="David" preferred_name="D" />
+	<user user_id="5" email="5555@gmail.com" phone="77885555"
+		first_name="test6" last_name="Each" preferred_name="E" />
+	<user user_id="6" email="6666@gmail.com" phone="77886666"
+		first_name="test7" last_name="Fox" preferred_name="F" />
+	<user user_id="7" email="7777@gmail.com" phone="77887777"
+		first_name="test8" last_name="Golf" preferred_name="G" />
+	<user user_id="8" email="8888@gmail.com" phone="77888888"
+		first_name="test9" last_name="Hope" preferred_name="H" />
+	<user user_id="9" email="9999@gmail.com" phone="77889999"
+		first_name="test10" last_name="India" preferred_name="I" />
+	<user user_id="10" email="0000@gmail.com" phone="77880000"
+		first_name="test0" last_name="Julia" preferred_name="J" />
+
+	<languages language_code="10MAN" language_name="国语" />
+	<languages language_code="20CAN" language_name="粤语" />
+	<languages language_code="30ENG" language_name="English" />
+
+	<contact_type type_code="10EM" type_name="Email" />
+	<contact_type type_code="15CL" type_name="Cell" />
+	<contact_type type_code="20PN" type_name="Phone" />
+	<contact_type type_code="25FX" type_name="Fax" />
+	<contact_type type_code="30WC" type_name="WeChat" />
+	<contact_type type_code="35QQ" type_name="QQ" />
+	<contact_type type_code="40FB" type_name="FackBook" />
+
+	<country country_code="CAN" country="Canada" />
+	<country country_code="CHN" country="China" />
+	<country country_code="USA" country="United State" />
+
+	<city city_code="CT01" city="Vancouver" country_code="CAN"
+		priority="10" />
+	<city city_code="CT02" city="Richmond" country_code="CAN"
+		priority="10" />
+	<city city_code="CT03" city="Burnaby" country_code="CAN" priority="10" />
+	<city city_code="CT04" city="New West" country_code="CAN"
+		priority="10" />
+	<city city_code="CT05" city="Surrey" country_code="CAN" priority="10" />
+	<city city_code="CT06" city="Delta" country_code="CAN" priority="10" />
+	<city city_code="CT07" city="Coquitlam" country_code="CAN"
+		priority="10" />
+	<city city_code="CT08" city="Port Coquitlam" country_code="CAN"
+		priority="10" />
+	<city city_code="CT09" city="Port Moody" country_code="CAN"
+		priority="10" />
+	<city city_code="CT010" city="West Vancouver" country_code="CAN"
+		priority="10" />
+	<city city_code="CT11" city="North Vancouver" country_code="CAN"
+		priority="10" />
+	<city city_code="CT12" city="White Rock" country_code="CAN"
+		priority="10" />
+	<city city_code="CT13" city="Maple Ridge" country_code="CAN"
+		priority="10" />
+	<city city_code="CT14" city="Langly" country_code="CAN" priority="10" />
+	<city city_code="CT15" city="Fraser Valley Area" country_code="CAN"
+		priority="10" />
+	<city city_code="CT16" city="Sunshine Coast" country_code="CAN"
+		priority="10" />
+
+	<member_type type_code="B1" type_name="普通服务商" />
+	<member_type type_code="B2" type_name="注册服务商" />
+	<member_type type_code="B3" type_name="认证服务商" />
+	<member_type type_code="C1" type_name="普通会员" />
+	<member_type type_code="C2" type_name="VIP会员" />
+	<member_type type_code="S1" type_name="普通客服" />
+	<member_type type_code="S2" type_name="客服主管" />
+	<member_type type_code="S3" type_name="系统管理员" />
+
+	<recommend_level recommend_level_id="0"
+		recommend_level_name="无" />
+	<recommend_level recommend_level_id="1"
+		recommend_level_name="低" />
+	<recommend_level recommend_level_id="2"
+		recommend_level_name="中" />
+	<recommend_level recommend_level_id="3"
+		recommend_level_name="高" />
+
+	<service_unit unit_id="HOUR" unit="每小时" />
+	<service_unit unit_id="DAY" unit="每天" />
+	<service_unit unit_id="WEEK" unit="每周" />
+	<service_unit unit_id="LB" unit="每磅" />
+	<service_unit unit_id="KG" unit="每千克" />
+	<service_unit unit_id="TONE" unit="每吨" />
+	<service_unit unit_id="KM" unit="每千米" />
+	<service_unit unit_id="SQFT" unit="每平方尺" />
+	<service_unit unit_id="SQM" unit="每平方米" />
+
+	<service_status status_id="10" status="草稿" />
+	<service_status status_id="20" status="上架" />
+	<service_status status_id="30" status="下架" />
+	<service_status status_id="40" status="删除" />
+
+	<service_order_status status_id="10" status_name="待Bid" />
+	<service_order_status status_id="20" status_name="已Bid" />
+	<service_order_status status_id="30" status_name="已Unbid" />
+	<service_order_status status_id="40" status_name="已完成" />
+	<service_order_status status_id="50" status_name="已取消" />
+	<service_order_status status_id="60" status_name="已评" />
+
+	<ticket_source_type type_code="PHONE" type_name="客户来电" />
+	<ticket_source_type type_code="EMAIL" type_name="客户邮件" />
+	<ticket_source_type type_code="ORDER" type_name="客户订单" />
+
+
+	<ticket_status status_code="10" status_name="等待处理"
+		priority="1" />
+	<ticket_status status_code="20" status_name="正在处理"
+		priority="1" />
+	<ticket_status status_code="30" status_name="主管处理"
+		priority="1" />
+	<ticket_status status_code="40" status_name="处理完成"
+		priority="1" />
+	<ticket_status status_code="50" status_name="取消处理"
+		priority="1" />
+
+	<blog_status status_code="10" status_name="草稿" />
+	<blog_status status_code="20" status_name="发布" />
+	<blog_status status_code="30" status_name="不发布" />
+
+</dataset>

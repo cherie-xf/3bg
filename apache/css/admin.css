@@ -1,0 +1,58 @@
+       html,body{
+       	  color:#555;
+          height:100%;
+          font-size:12px;
+          line-height:20px;
+          letter-spacing: 0px;
+       }
+       div{
+       	border: 0px solid;
+       }
+       h3{
+          font-size:20px;
+       }
+       h4{
+         font-size:14px;
+       }
+
+       a{
+          font-size:12px;
+          color:#0C6FB0;
+       }
+       a.bluelink{
+          color:#0C6FB0;
+       }
+       a:hover, a.bluelink:hover{
+          color:#f9a56b;
+          text-decoration:none;
+       }
+
+       .myrow{
+          margin-bottom:10px;
+       }
+
+        #imglist{
+          margin:0;
+          padding:0;
+          list-style-type: none;
+        }
+        #imglist li{
+          display:inline-block;
+          width:100px;
+          //height:100px;
+          height:auto;
+          margin:0 10px 10px 0;
+          padding:0;
+        }
+        #imglist li img{
+          width:100px;
+          height:80px;
+        }
+        .delImgDiv{
+          width:100%;
+          text-align:center;
+        }
+		.mytab{
+           margin:0;
+           padding:0;
+        }

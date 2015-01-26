@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.RecoveryTokenDao">
+
+	<select id="queryRecoveryToken" resultType="RecoveryToken" parameterType="RecoveryToken">
+		SELECT * FROM recovery_token 
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="id>0">
+				AND id = #{id}
+			</if>
+			<if test="user_id>0">
+				AND user_id = #{user_id}
+			</if>
+		</trim>
+	</select>
+
+	<insert id="insertRecoveryToken" parameterType="RecoveryToken" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO recovery_token (
+		<trim suffix="" suffixOverrides=",">
+			<if test="token!=null and token!=''">
+				token,
+			</if>
+			<if test="user_id>0">
+				user_id,
+			</if>
+			<if test="created_at!=null">
+				created_at,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffix="" suffixOverrides=",">
+			<if test="token!=null and token!=''">
+				#{token},
+			</if>
+			<if test="user_id>0">
+				#{user_id},
+			</if>
+			<if test="created_at!=null">
+				#{created_at},
+			</if>
+		</trim>
+		)
+	</insert>
+
+</mapper>

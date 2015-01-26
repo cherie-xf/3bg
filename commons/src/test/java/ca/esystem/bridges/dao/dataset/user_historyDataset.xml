@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+	
+	<user_history history_id="1" user_id="1" content="test content message"
+		created_by="1" creater_name="Lily" created_at="2014-11-27 13:30:04"
+		 is_deleted="0" />
+	<user_history history_id="2" user_id="2" content="test content message222"
+		created_by="1" creater_name="wang" created_at="2014-11-27 13:30:04"
+		 is_deleted="0" />
+
+
+</dataset>

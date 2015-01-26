@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+
+	<member_type type_code="B1" type_name="普通服务商" />
+	<member_type type_code="C1" type_name="普通会员" />
+	<member_type type_code="S1" type_name="普通客服" />
+
+	<recommend_level recommend_level_id="0"
+		recommend_level_name="无" />
+	<recommend_level recommend_level_id="1"
+		recommend_level_name="低" />
+
+	<member member_id="B0001001" user_id="1" type_code="B1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="1" created_at="2014-11-27 13:30:04" modified_by="1" />
+	<member member_id="C0001001" user_id="2" type_code="C1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="2" created_at="2014-11-27 13:30:04" modified_by="2" />
+	<member member_id="B0001002" user_id="2" type_code="S1" credit="50"
+		valid_from="2014-11-27 13:30:04" valid_to="2015-11-27 13:30:04"
+		created_by="2" created_at="2014-11-27 13:30:04" modified_by="2" />
+
+	<category category_id="01" category_name="category 1"
+		english_name="first level" created_at="2014-11-27 13:30:04"
+		created_by="1" modified_at="2014-11-27 13:30:04" modified_by="1"
+		is_deleted="0" />
+	<category category_id="02" category_name="category 2"
+		english_name="first level" created_at="2014-11-27 13:30:04"
+		created_by="2" modified_at="2014-11-27 13:30:04" modified_by="2"
+		is_deleted="0" />
+
+	<business_profile member_id="B0001001"
+		recommend_level_id="1" business_name="business name 1"
+		business_number="business number 1" />
+	<business_profile member_id="C0001001"
+		recommend_level_id="1" business_name="business name 2"
+		business_number="business number 2" />
+
+	<business_category member_id="B0001001" category_id="01" />
+	<business_category member_id="C0001001" category_id="01" />
+</dataset>

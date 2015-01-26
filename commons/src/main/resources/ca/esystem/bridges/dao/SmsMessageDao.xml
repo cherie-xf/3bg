@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.SmsMessageDao">
+	<sql id="SelectFields">
+		SELECT m.phone as phone, m.message_code as message_code,
+		m.message_text as message_text, m.created_at as created_at
+		FROM
+		sms_message m
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="phone!=null and phone!=''">
+				AND m.phone = #{phone}
+			</if>
+			<if test="message_code!=null and message_code!=''">
+				AND m.message_code=#{message_code}
+			</if>
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="SmsMessage"
+		parameterType="SmsMessage">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="SmsMessage"
+		resultType="java.lang.Integer">
+		SELECT count(*) FROM sms_message m
+		<include refid="WhereClause" />
+	</select>
+
+	<select id="queryMinByCondition" parameterType="SmsMessage"
+		resultType="java.lang.Integer">
+		SELECT MIN(message_code) FROM sms_message
+		WHERE phone =
+		#{phone} AND created_at >= #{created_at}
+	</select>
+
+	<select id="queryMaxByCondition" parameterType="SmsMessage"
+		resultType="java.lang.Integer">
+		SELECT MAX(message_code) FROM sms_message
+		WHERE phone =
+		#{phone} AND created_at >= #{created_at}
+	</select>
+
+	<insert id="insert" parameterType="SmsMessage">
+		INSERT INTO sms_message (
+		<trim suffix="" suffixOverrides=",">
+			<if test="phone!=null and phone!=''">
+				phone,
+			</if>
+			<if test="message_code!=null and message_code!=''">
+				message_code,
+			</if>
+			<if test="message_text!=null and message_text!=''">
+				message_text,
+			</if>
+			<if test="created_at!=null">
+				created_at,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffix="" suffixOverrides=",">
+			<if test="phone!=null and phone!=''">
+				#{phone},
+			</if>
+			<if test="message_code!=null and message_code!=''">
+				#{message_code},
+			</if>
+			<if test="message_text!=null and message_text!=''">
+				#{message_text},
+			</if>
+			<if test="created_at!=null">
+				#{created_at},
+			</if>
+		</trim>
+		)
+	</insert>
+</mapper>

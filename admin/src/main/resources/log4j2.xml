@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="WARN" strict="true" name="${build.artifact}"
+	packages="org.apache.logging.log4j.test">
+	<!-- Logging level DEBUG < INFO < WARN < ERROR < FATAL -->
+
+	<!-- Appenders -->
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[${build.artifact}] %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<RollingFile name="RollingFile"
+			fileName="${loggingFilePath}/${build.artifact}.log"
+			filePattern="${loggingFilePath}/$${date:yyyy-MM}/${build.artifact}-%d{yyyy-MM-dd-HH}-%i.log.gz">
+			<PatternLayout>
+				<pattern>[${build.artifact}] %d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1.}
+					- %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="24"
+					modulate="true" />
+				<SizeBasedTriggeringPolicy size="250 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="RootRollingFile" fileName="${loggingFilePath}/rootLogger.log"
+			filePattern="${loggingFilePath}/$${date:yyyy-MM}/${build.artifact}-root-%d{yyyy-MM-dd-HH}-%i.log.gz">
+			<PatternLayout>
+				<pattern>[${build.artifact}] %d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1.}
+					- %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="24"
+					modulate="true" />
+				<SizeBasedTriggeringPolicy size="250 MB" />
+			</Policies>
+		</RollingFile>
+	</appenders>
+
+	<Loggers>
+		<Logger name="ca.esystem.framework.dao" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" level="TRACE" />
+			<AppenderRef ref="RollingFile" level="TRACE" />
+		</Logger>
+		
+		<Logger name="ca.esystem.bridges" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" level="${loggingLevel}" />
+			<AppenderRef ref="RollingFile" level="${loggingLevel}" />
+		</Logger>
+
+		<Logger name="org.springframework" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" level="${springLogLevel}" />
+			<AppenderRef ref="RollingFile" level="${springLogLevel}" />
+		</Logger>
+
+		<Logger name="org.springframework.security" level="INFO"
+			additivity="false">
+			<AppenderRef ref="Console" level="${springLogLevel}" />
+			<AppenderRef ref="RollingFile" level="${springLogLevel}" />
+		</Logger>
+		<Logger name="org.springframework.jdbc" additivity="false">
+			<AppenderRef ref="Console" level="${ibatislogLevel}" />
+			<AppenderRef ref="RollingFile" level="${ibatislogLevel}" />
+		</Logger>
+		<Logger name="org.apache.ibatis.io.ResolverUtil" level="TRACE"
+			additivity="false">
+			<AppenderRef ref="Console" level="${ibatislogLevel}" />
+			<AppenderRef ref="RollingFile" level="${ibatislogLevel}" />
+		</Logger>
+
+		<Root level="DEBUG" additivity="false">
+			<AppenderRef ref="RootRollingFile" level="WARN" />
+
+		</Root>
+	</Loggers>
+
+</Configuration>

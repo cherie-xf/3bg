@@ -1,0 +1,317 @@
+<html>
+    <head>
+        <title>Dialog_Picture</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+            <meta http-equiv="cache-control" content="no-cache">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <link href="/css/reset.css" rel="stylesheet"/>
+                        <link href="/css/font.css" rel="stylesheet"/>
+                        <link href="/css/bootstrap.css" rel="stylesheet"/>
+                        <link href="/css/colorbox.css" rel="stylesheet"/>
+                        <link href="/css/global.css" rel="stylesheet"/>
+                        <link href="/css/validate.css" rel="stylesheet"/>
+                        <link rel="stylesheet" href="/css/themes/base/jquery.ui.all.css"/>
+    </head>
+    <body>
+        <div class="wrap">
+            <!--globalnav start-->
+            <div class="topnav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                            
+                        </div>
+                        <div class="col-md-2" style="text-align:right">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--globalnav end-->
+            <!--globalnav start-->
+            
+            <div class="navbar globalnav" role="navigation">
+                <div class="container">
+                    
+                    
+                    
+                    
+                </div><!-- /.container -->
+            </div><!-- /.navbar -->
+            <!--globalnav end-->
+            
+            <!--container Start-->
+            <div class="container">
+                <div class="main">
+                    <div class="row">
+                        
+                        <div class="col-sm-12">
+                            <form id="signupForm" class="form-horizontal" action="/web/signup.flow;jsessionid=11C0A281982B39A0BDD5F8038082C3F6?execution=e1s1" method="post">
+                                <div class="row">
+                                    <div class="col-sm-12">
+									<h4>上传图片</h4>
+									</div>
+									<div class="col-sm-12">
+									<div class="row">
+									
+									<div class="col-sm-2"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-picture"></span>上传图片</button></div>
+									<div class="col-sm-3"> <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-floppy-open"></span>插入选定图片到内容</button></div>
+									</div></div>
+                                </div>
+								
+								 <div class="row" style="margin-top:20px">
+								  <div class="col-sm-2">
+								 <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  </div>
+								   <div class="col-sm-2">
+								   
+								   <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								   
+								   </div>
+								    <div class="col-sm-2">
+									<div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  
+								  
+									
+						</div>
+									 <div class="col-sm-2 ">
+									 
+									 <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									 </div>
+							<div class="col-sm-2">
+									  
+							       <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									  </div>
+									  
+									  <div class="col-sm-2">
+									<div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  
+								  
+									
+						</div>
+								 
+								 </div>
+								 
+								 
+								 
+								 <div class="row" style="margin-top:20px">
+								  <div class="col-sm-2">
+								 <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  </div>
+								   <div class="col-sm-2">
+								   
+								   <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								   
+								   </div>
+								    <div class="col-sm-2">
+									<div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									
+									</div>
+									 <div class="col-sm-2 ">
+									 
+									 <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									 </div>
+							<div class="col-sm-2">
+									  
+							       <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									  </div>
+									  <div class="col-sm-2">
+									<div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  
+								  
+									
+						</div>
+								 
+								 </div>
+								 
+								 
+								 <div class="row" style="margin-top:20px">
+								  <div class="col-sm-2">
+								 <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  </div>
+								   <div class="col-sm-2">
+								   
+								   <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								   
+								   </div>
+								    <div class="col-sm-2">
+									<div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									
+									</div>
+									 <div class="col-sm-2 ">
+									 
+									 <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									 </div>
+							<div class="col-sm-2">
+									  
+							       <div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+									  </div>
+									  <div class="col-sm-2">
+									<div class="row">
+								  <div class="col-sm-12">
+								  <img src="/images/p1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+								  </div>
+								  <div class="col-sm-12"><label class="xuanze checkbox-inline"><input type="checkbox">靓丽美甲</label></div>
+								  </div>
+								  
+								  
+									
+						</div>
+								 
+								 </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--col-sm-8-->
+                </div>
+                <!-- main -->
+            </div>
+            <!--container-->
+        </div>
+        <!--wrap end-->
+        
+        <!--footer start-->
+        
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    adfa
+                </div>
+            </div>
+        </div>
+        
+        <script src="/js/jquery-1.10.2.min.js"></script>
+        <script src="/js/jquery.form-validator.min.js"></script>	
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/holder.js"></script> 
+        <script src="/js/jquery.colorbox.js"></script>
+        
+        <script src="/js/ui/jquery.ui.core.js"></script>
+        <script src="/js/ui/jquery.ui.widget.js"></script>
+        <script src="/js/ui/jquery.ui.datepicker.js"></script>
+        <script>
+            $(document).ready(function() {
+                              
+                              $.validate({
+                                         modules:'security',
+                                         onModulesLoaded : function() {
+                                         $('input[name="confirmpassword"]').displayPasswordStrength();
+                                         }
+                                         });			
+                              
+                              if($("#agreeTerm").prop("checked")){
+                              $("#nextbutton").removeAttr("disabled");
+                              }		
+                              $("#agreeTerm").click(function(){
+                                                    if($(this).prop("checked")){
+                                                    $("#nextbutton").removeAttr("disabled");
+                                                    }else{
+                                                    $("#nextbutton").attr("disabled","disabled");						
+                                                    }
+                                                    });
+                              
+                              $(".dateSelector").change(function(){
+                                                        if($("#monthSelector").val()!=''&&$("#daySelector").val()!=''&&$("#yearSelector").val()!=''){
+                                                        var birthday = $("#monthSelector").val()+"/"+$("#daySelector").val()+"/"+$("#yearSelector").val();
+                                                        console.log(birthday);
+                                                        $("#birthday").val(birthday);
+                                                        }
+                                                        });
+                              
+                              
+                              var getting = $.get("system/refreshDictionary.json");
+                              getting.done(function(data) {
+                                           console.log(data);
+                                           });			
+                              
+                              });
+            </script>
+        
+    </body>
+</html>

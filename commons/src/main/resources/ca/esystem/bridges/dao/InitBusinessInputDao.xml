@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.InitBusinessInputDao">
+ 
+  <sql id="SelectFields">
+    SELECT a.member_id,
+    	   a.business_name,
+    	   a.recommend_level_id,
+    	   a.business_start,
+    	   a.owner_name,
+    	   a.phone,
+    	   a.address
+    FROM init_business_profile a
+  </sql>
+   
+  <sql id="WhereClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="member_id != null and member_id != ''">
+	       AND a.member_id like '%${member_id}%' 
+	    </if>
+	    <if test="phone != null and phone != ''">
+	       AND a.phone like '%${phone}%' 
+	    </if>    
+	    <if test="business_name != null and business_name != ''">
+	       AND a.business_name like '%${business_name}%'
+	    </if>
+	       AND a.is_deleted = 0
+    </trim>
+  </sql>
+    
+  <select id="queryListByCondition" resultType="Business_Profile" parameterType="Business_Profile">
+    <include refid="SelectFields"/>
+    <include refid="WhereClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+  </select> 
+  
+  <select id="queryCountRowsByCondition" parameterType="Business_Profile" resultType="java.lang.Integer" >
+    SELECT count(a.member_id) 
+    FROM init_business_profile a
+    <include refid="WhereClause"/>
+  </select>  
+  
+  <select id="queryObjectByCondition" resultType="Business_Profile" parameterType="Business_Profile" >
+    SELECT * FROM init_business_profile 
+    <where>
+      member_id = #{member_id} AND is_deleted = 0
+    </where>
+  </select>
+  
+  <select id="getMaxMemberId" resultType="String" >
+    SELECT MAX(member_id) FROM init_business_profile     
+  </select>
+ 
+ <insert id="insert" parameterType="Business_Profile" useGeneratedKeys="false" keyProperty="member_id" keyColumn="member_id">
+    INSERT INTO init_business_profile (
+      <if test="member_id != null and member_id != ''">
+        member_id,
+      </if>
+      <if test="business_number != null and business_number !=''">
+        business_number,
+      </if>
+      <if test="business_name != null and business_name !=''">
+        business_name,
+      </if>
+      <if test="description != null and description !=''">
+        description,
+      </if>
+      <if test="owner_name != null and owner_name !=''">
+        owner_name,
+      </if>
+      <if test="phone != null and phone !=''">
+        phone,
+      </if>
+      <if test="tax_number != null and tax_number !=''">
+        tax_number,
+      </if>
+      <if test="wcb != null and wcb !=''">
+        wcb,
+      </if>
+      <if test="business_start != null">
+        business_start,
+      </if>
+      <if test="logo != null and logo !=''">
+        logo,
+      </if>
+      <if test="support_doc != null and support_doc !=''">
+        support_doc,
+      </if>
+      <if test="agree_term != null">
+        agree_term,
+      </if>
+      <if test="publication != null">
+        publication,
+      </if>
+      <if test="is_person != null">
+        is_person,
+      </if>
+      <if test="website != null and website != ''">
+        website,
+      </if>
+      <if test="email != null and email != ''">
+        email,
+      </if>
+      <if test="address != null and address != ''">
+        address,
+      </if>
+      <if test="wechat != null and wechat != ''">
+        wechat,
+      </if>
+      <if test="postcode != null and postcode != ''">
+        postcode,
+      </if>
+      <if test="quick_respond != null">
+        quick_respond,
+      </if>
+      <if test="referal_info != null and referal_info != ''">
+        referal_info,
+      </if>
+      <if test="contract_date != null">
+        contract_date,
+      </if>
+      <if test="recommend_level_id != null">
+        recommend_level_id,
+      </if>
+      <if test="tcpip != null">
+        ip_address,
+      </if>
+      <if test="created_by != null">
+        created_by,
+      </if>
+      <if test="created_at != null">
+        created_at
+      </if>      
+      )
+    values
+    (
+      <if test="member_id != null and member_id != ''">
+        #{member_id},
+      </if>
+      <if test="business_number != null and business_number !=''">
+        #{business_number},
+      </if>
+      <if test="business_name != null and business_name !=''">
+        #{business_name},
+      </if>
+      <if test="description != null and description !=''">
+        #{description},
+      </if>
+      <if test="owner_name != null and owner_name !=''">
+        #{owner_name},
+      </if>
+      <if test="phone != null and phone !=''">
+        #{phone},
+      </if>
+      <if test="tax_number != null and tax_number !=''">
+        #{tax_number},
+      </if>
+      <if test="wcb != null and wcb !=''">
+        #{wcb},
+      </if>
+      <if test="business_start != null">
+        #{business_start},
+      </if>
+      <if test="logo != null and logo !=''">
+        #{logo},
+      </if>
+      <if test="support_doc != null and support_doc !=''">
+        #{support_doc},
+      </if>
+      <if test="agree_term != null">
+        #{agree_term},
+      </if> 
+      <if test="publication != null">
+        #{publication},
+      </if>
+      <if test="is_person != null">
+        #{is_person},
+      </if>      
+      <if test="website != null and website != ''">
+        #{website},
+      </if>
+      <if test="email != null and email != ''">
+        #{email},
+      </if>
+      <if test="address != null and address != ''">
+        #{address},
+      </if>
+      <if test="wechat != null and wechat != ''">
+        #{wechat},
+      </if>
+      <if test="postcode != null and postcode != ''">
+        #{postcode},
+      </if>
+      <if test="quick_respond != null">
+        #{quick_respond},
+      </if>
+      <if test="referal_info != null and referal_info != ''">
+        #{referal_info},
+      </if>
+      <if test="contract_date != null">
+        #{contract_date},
+      </if>
+      <if test="recommend_level_id != null">
+        #{recommend_level_id},
+      </if>
+      <if test="tcpip != null">
+        #{tcpip},
+      </if>
+      <if test="created_by != null">
+        #{created_by},
+      </if>
+      <if test="created_at != null">
+        #{created_at}
+      </if>
+     )
+  </insert>
+  
+  <update id="update" parameterType="Business_Profile">
+    UPDATE init_business_profile
+    <set>
+      <if test="business_number != null ">
+        business_number = #{business_number},
+      </if>
+      <if test="business_name != null">
+        business_name = #{business_name},
+      </if>
+      <if test="description != null">
+        description = #{description},
+      </if>
+      <if test="owner_name != null">
+        owner_name = #{owner_name},
+      </if>
+      <if test="phone != null">
+        phone = #{phone},
+      </if>
+      <if test="tax_number != null">
+        tax_number = #{tax_number},
+      </if>
+      <if test="wcb != null">
+        wcb = #{wcb},
+      </if>
+      <if test="business_start != null">
+        business_start = #{business_start},
+      </if>
+      <if test="logo != null">
+        logo = #{logo},
+      </if>
+      <if test="support_doc != null">
+        support_doc = #{support_doc},
+      </if>
+      <if test="agree_term != null">
+        agree_term = #{agree_term},
+      </if>
+      <if test="recommend_level_id != null">
+        recommend_level_id = #{recommend_level_id},
+      </if>
+      <if test="publication != null">
+        publication = #{publication},
+      </if>
+       <if test="is_person != null">
+        is_person = #{is_person},
+      </if>
+      <if test="website != null">
+        website = #{website},
+      </if>
+      <if test="email != null">
+        email = #{email},
+      </if>
+      <if test="address != null">
+        address = #{address},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat},
+      </if>
+      <if test="postcode != null">
+        postcode = #{postcode},
+      </if>
+      <if test="quick_respond != null">
+        quick_respond = #{quick_respond},
+      </if>
+      <if test="referal_info != null">
+        referal_info = #{referal_info},
+      </if>
+      <if test="contract_date != null">
+        contract_date = #{contract_date},
+      </if>
+    </set>
+    WHERE member_id = #{member_id} AND is_deleted = 0
+  </update>      
+  
+  <update id="delete" parameterType="Business_Profile">
+    UPDATE init_business_profile set is_deleted = 1 WHERE member_id = #{member_id} AND is_deleted = 0
+  </update> 
+  
+  <insert id="insertBusinessCategory" parameterType="Business_Category" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+    	INSERT INTO init_business_category(
+    		member_id,
+    		category_id
+    		)
+    	value(
+    		#{member_id},
+    		#{category_id})    
+  </insert>
+  
+  <select id="queryBusinessCategoryList" resultType="Business_Category" parameterType="Business_Category" >
+    	SELECT 
+    		b.id, 
+    		b.member_id, 
+    		b.category_id, 
+    		c.category_name
+    	FROM init_business_category b left join category c on b.category_id = c.category_id
+    <where>
+      	b.member_id = #{member_id}
+    </where>
+  </select>
+  
+  <delete
+	  id="deleteBusinessCategory"
+	  parameterType="Business_Category"
+	  flushCache="true"
+	  statementType="PREPARED"
+	  timeout="20">
+	  	delete from init_business_category where member_id = #{member_id} and category_id = #{category_id}
+   </delete>
+  
+</mapper>

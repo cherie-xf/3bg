@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.UserHistoryDao">
+
+	<sql id="SelectFields">
+		SELECT
+		a.history_id,a.user_id,a.content,a.creater_name,a.created_by,a.created_at,a.is_deleted,
+		b.last_name,b.first_name,b.email,b.phone,b.preferred_name,b.salt,b.enabled,b.status
+		FROM user_history a left join user b
+		on a.user_id=b.user_id
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+		
+			<if test="user_id>0">
+				AND a.user_id=#{user_id}
+			</if>
+			<if test="creater_name!=null and creater_name!=''">
+				AND a.creater_name=#{creater_name}
+			</if>
+			
+			AND a.is_deleted =0
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="User_History"
+		parameterType="User_History">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="User_History"
+		resultType="java.lang.Integer">
+		SELECT count(a.history_id)
+		FROM user_history a left join user b on
+		a.user_id=b.user_id
+		<include refid="WhereClause" />
+	</select>
+
+
+	<select id="queryObjectByCondition" resultType="User_History"
+		parameterType="User_History">
+		SELECT
+		a.history_id,a.user_id,a.content,a.creater_name,a.created_by,a.created_at,a.is_deleted,
+		b.last_name,b.first_name,b.email,b.phone,b.preferred_name,b.salt,b.enabled,b.status
+		FROM user_history a left join user b
+		on a.user_id=b.user_id
+		<where>
+			a.history_id=#{history_id}
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="User_History" useGeneratedKeys="true"
+		keyProperty="history_id" keyColumn="history_id">
+		INSERT INTO user_history (
+		<if test="user_id>0">
+			user_id,
+		</if>
+		<if test="content!=null and content!=''">
+			content,
+		</if>
+		<if test="creater_name!=null and creater_name!=''">
+			creater_name,
+		</if>
+		<if test="created_by>0">
+			created_by,
+		</if>
+		<if test="created_at!=null">
+			created_at,
+		</if>
+		is_deleted
+		)
+		values
+		(
+		<if test="user_id>0">
+			#{user_id},
+		</if>
+		<if test="content!=null and content!=''">
+			#{content},
+		</if>
+		<if test="creater_name!=null and creater_name!=''">
+			#{creater_name},
+		</if>
+		<if test="created_by>0">
+			#{created_by},
+		</if>
+		<if test="created_at!=null">
+			#{created_at},
+		</if>
+		#{is_deleted}
+		)
+	</insert>
+
+</mapper>

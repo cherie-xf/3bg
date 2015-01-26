@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.MediaDao">
+
+	<sql id="SelectFields">
+		SELECT
+		media_id,thumb,bigpic,title,ext_name,created_by,created_at,modified_by,modified_at
+		FROM media
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="title!=null and title!=''">
+				AND title like '%${title}%'
+			</if>
+			<if test="ext_name!=null and ext_name!=''">
+				AND ext_name = #{ext_name}
+			</if>
+			<if test="created_by>0">
+			    AND created_by = #{created_by}
+			</if>
+			<if test="beginDate!=null">
+				AND created_at >= #{beginDate}
+			</if>
+			<if test="endDate!=null">
+		      <![CDATA[
+		       AND created_at <= #{endDate}
+		       ]]>
+			</if>
+			AND is_deleted=0
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="Media"
+		parameterType="Media">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="Media"
+		resultType="java.lang.Integer">
+		SELECT count(media_id)
+		FROM media
+		<include refid="WhereClause" />
+	</select>
+
+
+	<select id="queryObjectByCondition" resultType="Media"
+		parameterType="Media">
+		SELECT * FROM media
+		<where>
+			media_id=#{media_id}
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="Media" useGeneratedKeys="true"
+		keyProperty="media_id" keyColumn="media_id">
+		INSERT INTO media (
+		<trim suffix="" suffixOverrides=",">
+			<if test="thumb!=null and thumb!=''">
+				thumb,
+			</if>
+			<if test="bigpic!=null and bigpic!=''">
+				bigpic,
+			</if>
+			<if test="title!=null and title!=''">
+				title,
+			</if>
+			<if test="ext_name!=null and ext_name!=''">
+				ext_name,
+			</if>
+			<if test="description!=null and description!=''">
+				description,
+			</if>
+			<if test="created_by>0">
+				created_by,
+			</if>
+			<if test="created_at!=null">
+				created_at,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffix="" suffixOverrides=",">
+			<if test="thumb!=null and thumb!=''">
+				#{thumb},
+			</if>
+			<if test="bigpic!=null and bigpic!=''">
+				#{bigpic},
+			</if>
+			<if test="title!=null and title!=''">
+				#{title},
+			</if>
+			<if test="ext_name!=null and ext_name!=''">
+				#{ext_name},
+			</if>
+			<if test="description!=null and description!=''">
+				#{description},
+			</if>
+			<if test="created_by>0">
+				#{created_by},
+			</if>
+			<if test="created_at!=null">
+				#{created_at},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="Media">
+		UPDATE media
+		<set>
+			<if test="title!=null">
+				title=#{title},
+			</if>
+			<if test="description!=null">
+				description=#{description},
+			</if>
+			<if test="modified_by>0">
+				modified_by=#{modified_by},
+			</if>
+			<if test="modified_at!=null">
+				modified_at=#{modified_at},
+			</if>
+		</set>
+		WHERE media_id=#{media_id}
+	</update>
+
+	<update id="delete" parameterType="Media">
+		UPDATE media set is_deleted=1 where media_id=#{media_id}
+	</update>
+
+</mapper>

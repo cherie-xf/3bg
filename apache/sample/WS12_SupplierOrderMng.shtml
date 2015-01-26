@@ -1,0 +1,182 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<!----------------左侧边栏---------------->
+<!--#include file="leftbar.html" -->
+
+<!----------------右侧边栏----------------> 
+<!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main1">-->
+<div class="col-sm-12 col-md-9">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<span class="tbsmanagementtitle">我卖出的服务</span>
+			</div>
+		</div>
+	</div>
+	<form class="form-horizontal" role="form">
+		<div class="row">
+			<div class="col-sm-12 col-md-5">
+				<div class="form-group">
+					<label for="input-id" class="col-xs-12 col-sm-4 col-md-4 control-label" id="ddid">订单ID：</label>
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<input type="text" class="form-control" id="inputxing" placeholder="">
+						<!--<span class="glyphicon glyphicon-ok form-control-feedback"></span> --> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-5">
+				<div class="form-group">
+					<label for="input-name" class="col-xs-12 col-sm-4 col-md-4 control-label" id="ddname">产品名称：</label>
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<input type="text" class="form-control" id="input-name" placeholder="">
+						<!--<span class="glyphicon glyphicon-ok form-control-feedback"></span> --> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-2">
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<button type="button" class="btn btn-default tbs-button tbs-orange tbs-button-orange">查询</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-----------表格1---------------------->
+	<h4>未完成订单</h4>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover table-striped">
+					<tr>
+						<th>封面</th>
+						<th style="width:48px;">订单ID</th>
+						<th style="width:200px;">服务名称</th>
+						<th style="width:60px;">状态</th>
+						<th style="width:48px;">服务日期</th>
+						<th style="width:48px;">时间</th>
+						<th style="width:48px;">价格</th>
+						<th style="width:48px;">操作</th>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?order_id=5">专业报税</a></td>
+						<td>待处理</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a href="#">取消</a><br>
+							<a href="#">绑定</a>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?service_id=5">英语教育，三月流利</a></td>
+						<td>已绑定</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a href="#">取消</a><br>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?service_id=5">学历公证直通车</a></td>
+						<td>待绑定</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a href="#">取消</a><br>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-----------表格2---------------------->
+	<h4>已完成订单</h4>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<tr>
+						<th>封面</th>
+						<th style="width:48px;">订单ID</th>
+						<th style="width:200px;">服务名称</th>
+						<th style="width:60px;">状态</th>
+						<th style="width:48px;">服务日期</th>
+						<th style="width:48px;">时间</th>
+						<th style="width:48px;">价格</th>
+						<th style="width:48px;">操作</th>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?service_id=5">专业报税</a></td>
+						<td>已完成</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/vieworderrate.html?order_id=5">查看</a><br></td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?service_id=5">英语教育，三月流利</a></td>
+						<td>已取消</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/vieworderrate.html?order_id=5">查看</a><br></td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?service_id=5">学历公证直通车</a></td>
+						<td>已完成</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/vieworderrate.html?order_id=5">查看</a><br></td>
+					</tr>
+					<tr>
+						<td><a href="#"><img src="/images/no-image-found.jpg" title="" alt="" class="img-responsive"/></a></td>
+						<td>10987609</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/update.html?service_id=5">全套美甲，公主体验30元起</a></td>
+						<td>已完成</td>
+						<td>2014/10/20</td>
+						<td>10:30am</td>
+						<td>＄40</td>
+						<td><a class="openEditPage" href="http://demo.3qnow.net/admin/serviceorder/vieworderrate.html?order_id=5">查看</a><br></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<nav style="float:right;">
+				<ul class="pagination">
+					<li class="disabled"><a href="#">上一页</a></li>
+					<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">下一页</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

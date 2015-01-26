@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	    <typeAlias type="ca.esystem.bridges.domain.User" alias="User"/>	
+		<typeAlias type="ca.esystem.bridges.domain.UserProfile"	alias="UserProfile"/>
+		<typeAlias type="ca.esystem.bridges.domain.UserAccount" alias="UserAccount"/>
+		<typeAlias type="ca.esystem.bridges.domain.Address" alias="Address"/>	
+		<typeAlias type="ca.esystem.bridges.domain.Contact"	alias="Contact"/>
+		<typeAlias type="ca.esystem.bridges.domain.Dictionary" alias="Dictionary" />
+		<typeAlias type="ca.esystem.bridges.domain.Ticket" alias="Ticket" />
+		<typeAlias type="ca.esystem.bridges.domain.Ticket_Reply" alias="Ticket_Reply" />
+		<typeAlias type="ca.esystem.bridges.domain.Category" alias="Category" />
+		<typeAlias type="ca.esystem.bridges.domain.CategoryTag" alias="CategoryTag" />
+		<typeAlias type="ca.esystem.bridges.domain.Media" alias="Media" />
+		<typeAlias type="ca.esystem.bridges.domain.Membership" alias="Membership" />
+		<typeAlias type="ca.esystem.bridges.domain.Business_Profile" alias="Business_Profile" />
+		<typeAlias type="ca.esystem.bridges.domain.Business_Category" alias="Business_Category" />
+		<typeAlias type="ca.esystem.bridges.domain.Search_Missed" alias="Search_Missed"/>
+		<typeAlias type="ca.esystem.bridges.domain.CategoryTree" alias="CategoryTree"/>
+		<typeAlias type="ca.esystem.bridges.domain.ServiceProduct" alias="Service"/>
+		<typeAlias type="ca.esystem.bridges.domain.ServiceArea" alias="ServiceArea"/>
+		<typeAlias type="ca.esystem.bridges.domain.Blog" alias="Blog"/>
+		<typeAlias type="ca.esystem.bridges.domain.Service_Order" alias="Service_Order"/>
+		<typeAlias type="ca.esystem.bridges.domain.Service_Order_Rate" alias="Service_Order_Rate"/>
+		<typeAlias type="ca.esystem.bridges.domain.ServiceSchedule" alias="ServiceSchedule"/>
+		<typeAlias type="ca.esystem.bridges.domain.RecoveryToken" alias="RecoveryToken"/>
+		<typeAlias type="ca.esystem.bridges.domain.User_History" alias="User_History"/>
+		<typeAlias type="ca.esystem.bridges.domain.CustomerRepInfo" alias="CustomerRepInfo"/>
+		<typeAlias type="ca.esystem.bridges.domain.SmsMessage" alias="SmsMessage"/>
+		<typeAlias type="ca.esystem.bridges.domain.Content" alias="Content"/>				
+	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="ca.esystem.framework.dao.HistoryLogPlugin">
+	 	</plugin>
+	</plugins>	
+
+</configuration>

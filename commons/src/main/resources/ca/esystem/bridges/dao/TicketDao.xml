@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.TicketDao">
+
+	<sql id="SelectFields">
+		SELECT
+		a.id,a.title,a.description,
+		a.user_id,a.status_code,a.type_code,a.source_id,a.created_by,a.created_at,a.modified_by,a.modified_at,a.processor_id,
+		b.last_name,b.first_name,b.email,b.phone
+		FROM ticket a left join user b
+		on a.user_id=b.user_id
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="title!=null and title!=''">
+				AND a.title like '%${title}%'
+			</if>
+			<if test="status_code!=null and status_code!=''">
+				AND a.status_code = #{status_code}
+			</if>
+			<if test="processor_id>0">
+				AND a.processor_id = #{processor_id}
+			</if>
+			<if test="user_id>0">
+				AND a.user_id = #{user_id}
+			</if>
+			<if test="phone!=null and phone!=''">
+				AND b.phone=#{phone}
+			</if>
+			<if test="statusCodeList!=null and statusCodeList.size() >0">
+				AND a.status_code in
+				<foreach item="item" index="index" collection="statusCodeList"
+					open="(" separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="Ticket"
+		parameterType="Ticket">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryNotAssignedListByCondition" resultType="Ticket"
+		parameterType="Ticket">
+		<include refid="SelectFields" />
+		WHERE a.is_deleted = 0 AND (a.processor_id IS NULL OR a.processor_id = 0)
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+	
+	<select id="queryAssignedListByCondition" resultType="Ticket"
+		parameterType="Ticket">
+		<include refid="SelectFields" />
+		WHERE a.is_deleted = 0 AND NOT (a.processor_id IS NULL OR a.processor_id = 0)
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+	
+	<select id="queryCountRowsByCondition" parameterType="Ticket"
+		resultType="java.lang.Integer">
+		SELECT count(a.id)
+		FROM ticket a left join user b on
+		a.user_id=b.user_id
+		<include refid="WhereClause" />
+	</select>
+
+
+	<select id="queryObjectByCondition" resultType="Ticket"
+		parameterType="Ticket">
+		SELECT
+		a.id,a.title,a.description,
+		a.user_id,a.status_code,a.type_code,a.source_id,a.created_by,a.created_at,
+		a.modified_by,a.modified_at,a.processor_id,a.description,a.close_by,a.close_at,
+		b.last_name,b.first_name,b.email,b.phone
+		FROM ticket a left join user b
+		on a.user_id=b.user_id
+		<where>
+			a.id=#{id}
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="Ticket" useGeneratedKeys="true"
+		keyProperty="id" keyColumn="id">
+		INSERT INTO ticket (
+		<if test="title!=null and title!=''">
+			title,
+		</if>
+		<if test="description!=null and description!=''">
+			description,
+		</if>
+		<if test="user_id!=null">
+			user_id,
+		</if>
+		<if test="status_code!=null and status_code!=''">
+			status_code,
+		</if>
+		<if test="type_code!=null and type_code!=''">
+			type_code,
+		</if>
+		<if test="source_id>0">
+			source_id,
+		</if>
+		<if test="created_by>0">
+			created_by,
+		</if>
+		<if test="created_at!=null">
+			created_at,
+		</if>
+		processor_id
+		)
+		values
+		(
+		<if test="title!=null and title!=''">
+			#{title},
+		</if>
+		<if test="description!=null and description!=''">
+			#{description},
+		</if>
+		<if test="user_id!=null">
+			#{user_id},
+		</if>
+		<if test="status_code!=null and status_code!=''">
+			#{status_code},
+		</if>
+		<if test="type_code!=null and type_code!=''">
+			#{type_code},
+		</if>
+		<if test="source_id>0">
+			#{source_id},
+		</if>
+		<if test="created_by>0">
+			#{created_by},
+		</if>
+		<if test="created_at!=null">
+			#{created_at},
+		</if>
+		#{processor_id}
+		)
+	</insert>
+
+	<update id="update" parameterType="Ticket">
+		UPDATE ticket
+		<set>
+			<if test="title!=null">
+				title=#{title},
+			</if>
+			<if test="description!=null">
+				description=#{description},
+			</if>
+			<if test="user_id>0">
+				user_id=#{user_id},
+			</if>
+			<if test="status_code!=null">
+				status_code=#{status_code},
+			</if>
+			<if test="type_code!=null">
+				type_code=#{type_code},
+			</if>
+			<if test="modified_by>0">
+				modified_by=#{modified_by},
+			</if>
+			<if test="modified_at!=null">
+				modified_at=#{modified_at}
+			</if>
+		</set>
+		WHERE id=#{id}
+	</update>
+
+	<update id="updateStatus" parameterType="Ticket">
+		UPDATE ticket
+		<set>
+			<if test="status_code!=null">
+				status_code=#{status_code},
+			</if>
+			<if test="modified_by>0">
+				modified_by=#{modified_by},
+			</if>
+			<if test="modified_at!=null">
+				modified_at=#{modified_at},
+			</if>
+			<if test="close_by>0">
+				close_by=#{close_by},
+			</if>
+			<if test="close_at!=null">
+				close_at=#{close_at},
+			</if>
+			<if test="processor_id>0">
+				processor_id=#{processor_id}
+			</if>
+		</set>
+		WHERE id=#{id}
+	</update>
+
+</mapper>

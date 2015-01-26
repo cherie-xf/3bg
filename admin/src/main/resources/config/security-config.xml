@@ -1,0 +1,41 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http pattern="/css/**" security="none" />
+
+	<http>
+		<intercept-url pattern="/signup.htm*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/login.htm*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/system/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/initbusinessinput/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login login-page="/login.html" default-target-url="/ticket/manage.html" 
+		    authentication-failure-url="/login.html?error" username-parameter="email"
+			password-parameter="password" />
+		<remember-me remember-me-parameter="rememberme" key="$34fg**@Dfgh" token-validity-seconds="86400"/>
+		<logout logout-success-url="/login.html?logout" />
+		<!-- <csrf />-->
+	</http>
+
+	<beans:bean name="userService"
+		class="ca.esystem.bridges.service.impl.UserServiceImpl" />
+
+	<beans:bean name="bcryptEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+	<beans:bean id="userDetailsService"
+		class="ca.esystem.bridges.security.AuthenticationProvider">
+		<beans:property name="userService" ref="userService" />
+	</beans:bean>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder ref="bcryptEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

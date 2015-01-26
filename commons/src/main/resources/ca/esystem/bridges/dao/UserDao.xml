@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.UserDao">
+	<sql id="SelectFields">
+		SELECT u.user_id as id, u.email as email, u.phone as phone,
+		u.first_name as
+		firstName, u.last_name as lastName,
+		u.preferred_name as
+		preferredName, u.password as password, u.enabled
+		as enabled,
+		u.account_expired as accountExpired, u.account_locked as
+		accountLocked,
+		u.credentials_expired credentialsExpired,
+		u.status as status,
+		u.created_by as createdBy,
+		u.created_at as createdAt,
+		u.modified_by as modifiedBy,
+		u.modified_at as modifiedAt,
+		u.is_deleted as
+		deleted
+		FROM user u
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			AND is_deleted = 0 
+			<if test="email!=null and email!=''">
+				AND email = #{email}
+			</if>
+			<if test="phone!=null and phone!=''">
+				AND phone = #{phone}
+			</if>
+			<if test="firstName!=null and firstName!=''">
+				AND first_name=#{firstName}
+			</if>
+			<if test="lastName!=null and lastName!=''">
+				AND last_name=#{lastName}
+			</if>
+			<if test="user_type!=null">
+				AND user_type=#{user_type}
+			</if>
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="User"
+		parameterType="User">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="User"
+		resultType="java.lang.Integer">
+		SELECT count(user_id) FROM user
+		<include refid="WhereClause" />
+	</select>
+
+	<select id="queryObjectByCondition" resultType="User"
+		parameterType="User">
+		<include refid="SelectFields" />
+		<where>
+			user_id=#{id}
+		</where>
+	</select>
+
+	<select id="queryUserByEmail" resultType="User" parameterType="String">
+		<include refid="SelectFields" />
+		WHERE u.is_deleted = 0 AND u.email = #{value}
+	</select>
+
+	<insert id="insert" parameterType="User" useGeneratedKeys="true"
+		keyProperty="id" keyColumn="user_id">
+		INSERT INTO user (
+		<trim suffix="" suffixOverrides=",">
+			<if test="email!=null and email!=''">
+				email,
+			</if>
+			<if test="phone!=null and phone!=''">
+				phone,
+			</if>
+			<if test="firstName!=null and firstName!=''">
+				first_name,
+			</if>
+			<if test="lastName!=null and lastName!=''">
+				last_name,
+			</if>
+			<if test="preferredName!=null and preferredName!=''">
+				preferred_name,
+			</if>
+			<if test="password!=null and password!=''">
+				password,
+			</if>
+			<if test="enabled!=null">
+				enabled,
+			</if>
+			<if test="accountExpired!=null">
+				account_expired,
+			</if>
+			<if test="accountLocked!=null">
+				account_locked,
+			</if>
+			<if test="credentialsExpired!=null">
+				credentials_expired,
+			</if>
+			<if test="created_by>0">
+				created_by,
+			</if>
+			<if test="created_at!=null">
+				created_at,
+			</if>
+			<if test="user_type>0">
+				user_type,
+			</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffix="" suffixOverrides=",">
+			<if test="email!=null and email!=''">
+				#{email},
+			</if>
+			<if test="phone!=null and phone!=''">
+				#{phone},
+			</if>
+			<if test="firstName!=null and firstName!=''">
+				#{firstName},
+			</if>
+			<if test="lastName!=null and lastName!=''">
+				#{lastName},
+			</if>
+			<if test="preferredName!=null and preferredName!=''">
+				#{preferredName},
+			</if>
+			<if test="password!=null and password!=''">
+				#{password},
+			</if>
+			<if test="enabled!=null">
+				#{enabled},
+			</if>
+			<if test="accountExpired!=null">
+				#{accountExpired},
+			</if>
+			<if test="accountLocked!=null">
+				#{accountLocked},
+			</if>
+			<if test="credentialsExpired!=null">
+				#{credentialsExpired},
+			</if>
+			<if test="createdBy>0">
+				#{createdBy},
+			</if>
+			<if test="createdAt!=null">
+				#{createdAt},
+			</if>
+			<if test="user_type>0">
+				#{user_type},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="User">
+		UPDATE user
+		<set>
+			<if test="phone!=null">
+				phone=#{phone},
+			</if>
+			<if test="firstName!=null">
+				first_name=#{firstName},
+			</if>
+			<if test="lastName!=null">
+				last_name=#{lastName},
+			</if>
+			<if test="preferredName!=null">
+				preferred_name=#{preferredName},
+			</if>
+			<if test="enabled!=null">
+				enabled=#{enabled},
+			</if>
+			<if test="accountExpired!=null">
+				account_expired=#{accountExpired},
+			</if>
+			<if test="accountLocked!=null">
+				account_locked=#{accountLocked},
+			</if>
+			<if test="credentialsExpired!=null">
+				credentials_expired=#{credentialsExpired},
+			</if>
+			<if test="status>-1">
+			    status=#{status},
+			</if>
+			<if test="modifiedBy>0">
+				modified_by=#{modifiedBy},
+			</if>
+			<if test="modifiedAt!=null">
+				modified_at=#{modifiedAt},
+			</if>
+		</set>
+		WHERE user_id=#{id}
+	</update>
+
+	<update id="changePassword" parameterType="User">
+		UPDATE user SET password=#{password} WHERE user_id=#{id}
+	</update>
+	
+	<update id="updateUserStatus" parameterType="User">
+		UPDATE user SET status=#{status} WHERE user_id=#{id}
+	</update>
+	
+	<update id="delete" parameterType="User">
+	    UPDATE user
+	    <set>
+	      <if test="modifiedBy > 0">
+	        modified_by = #{modifiedBy},
+	      </if>
+	      <if test="modifiedAt != null">
+	        modified_at = #{modifiedAt},
+	      </if>
+	      is_deleted = 1
+	    </set>
+	    WHERE user_id = #{id} AND is_deleted = 0
+	</update> 
+</mapper>

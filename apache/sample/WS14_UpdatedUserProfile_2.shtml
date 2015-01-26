@@ -1,0 +1,250 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<!----------------左侧边栏---------------->
+<!--#include file="leftbar.html" -->
+                     
+                        <!----------------右侧边栏---------------->
+                        <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main1">-->
+                        <div class="col-sm-12 col-md-9">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <span class="tbsmanagementtitle">联系方式</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-----------表单---------------------->
+                            <form class="form-horizontal" role="form">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2 class="yonghu" style="text-align:left;padding:10px">联系电话&nbsp;<a href="#myModal1" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-plus-sign"></span></a></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputxing" class="col-xs-12 col-sm-2 col-md-3 control-label">家庭座机：</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">1-604-100-3456</span>&nbsp;&nbsp;<a href="#myModal1" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                                <!--<input type="text" class="form-control" id="inputxing" placeholder="">-->
+                                                <!--<span class="glyphicon glyphicon-ok form-control-feedback"></span> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputSfz" class="col-xs-12 col-sm-2 col-md-3 control-label">办公室座机：</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">1-604-100-3489</span>&nbsp;&nbsp;<a href="#myModal1" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2 class="yonghu" style="text-align:left;padding:10px">联系邮箱&nbsp;<a href="#myModal2" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-plus-sign"></span></a></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputFyk" class="col-xs-12 col-sm-2 col-md-3 control-label">个人信箱：</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">wei.cai@3bridges.net</span>&nbsp;&nbsp;<a href="#myModal2" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2 class="yonghu" style="text-align:left;padding:10px">社交网络账号&nbsp;<a href="#myModal3" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-plus-sign"></span></a></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputJz" class="col-xs-12 col-sm-2 col-md-3 control-label">微信：</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">125925661</span>&nbsp;&nbsp;<a href="#myModal3" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputJz" class="col-xs-12 col-sm-2 col-md-3 control-label">QQ：</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">125925661</span>&nbsp;&nbsp;<a href="#myModal3" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputJz" class="col-xs-12 col-sm-2 col-md-3 control-label">Facebook:</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">ubcweicai</span>&nbsp;&nbsp;<a href="#myModal3" data-toggle="modal" data-target="#myModal3"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2 class="yonghu" style="text-align:left;padding:10px">联系地址&nbsp;<a href="#myModal4" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-plus-sign"></span></a></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="inputJz" class="col-xs-12 col-sm-2 col-md-3 control-label">地址:</label>
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <p class="form-control-static"><span class="tanchu2">123 No.6 Road, Richmond, BC V6X 1Z2</span>&nbsp;&nbsp;<a href="#myModal4" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                                <p class="form-control-static"><span class="tanchu2">2205 Lower Mall, Vancouver, BC V6T 1Z4</span>&nbsp;&nbsp;<a href="#myModal4" data-toggle="modal" data-target="#myModal4"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-minus-sign"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="col-sm-10" id="queding" style="text-align:center">
+                                                <button type="button" class="btn btn-default btn-lg tbs-button tbs-orange tbs-button-orange">确定</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!------------------表单------------------>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Modal-->
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4>添加联系电话</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline" role="form" style="text-align:center">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>家庭座机</option>
+                                            <option>办公室座机</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="number input">
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">添加/修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4>添加联系邮箱</h4>
+                        </div>
+                        <div class="modal-body" style="text-align:center">
+                            <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>个人信箱</option>
+                                            <option>工作信箱</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="number input">
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">添加/修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4>添加社交网络账号</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline" role="form" style="text-align:center">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>微信</option>
+                                            <option>QQ</option>
+                                            <option>Facebook</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="number input">
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">添加/修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4>添加联系地址</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline" role="form" style="text-align:center">
+                                    <div class="form-group col-sm-12">
+                                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="">
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">添加/修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Modal-->
+
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

@@ -1,0 +1,41 @@
+﻿<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<!----------------左侧边栏---------------->
+<!--#include file="leftbar.html" -->
+                        
+<!----------------右侧边栏---------------->
+<div class="col-sm-12 col-md-9">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <span class="tbsmanagementtitle">个人金融账号管理</span>
+            </div>
+        </div>
+    </div>               
+    <!-----------表单---------------------->
+    <form class="form-horizontal" role="form" action="WS05_b_Personal_Finance_Account_Manager.shtml" >
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-3 control-label">请输入安全密码：</label>
+                    <div class="col-xs-12 col-sm-6 ">
+                        <input type="password" class="form-control xiao_ws05pw">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center" style="text-align:center;margin:20px 0;">               
+                <input type="submit" class="btn btn-default btn-lg tbs-button tbs-orange tbs-button-orange" value="确定">
+            </div>
+        </div>
+    </form>
+</div>
+
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

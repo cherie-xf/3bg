@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="123@123" phone="123456" first_name="lily"
+		last_name="wang" preferred_name="hello" />
+	<user user_id="2" email="123@123" phone="123456" first_name="ming"
+		last_name="Lin" preferred_name="Ton" />
+	<user_profile user_id="1" gender="m" birthday="2014-11-27 13:30:04" blood_type="B" preferred_language="10MAN" />
+	<user_profile user_id="2" gender="f" birthday="2014-11-27 13:30:04" blood_type="AB" preferred_language="10MAN" />
+	
+</dataset>

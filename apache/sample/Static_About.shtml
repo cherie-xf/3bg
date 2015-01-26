@@ -1,0 +1,58 @@
+﻿<!--#include file="header.shtml" -->
+
+<div class="container">
+    <div class="main tbsservice">
+        <div class="col-sm-12">
+            <a>关于我们</a> > 公司简介
+        </div>
+
+        <div class="col-sm-12 tbsservicetitile">
+            <div class="row">
+                <div class="col-sm-10">    
+                    关于我们          
+                </div>
+                <div class="col-sm-2">
+                    <div class="tbsbookmarkfollowshare">
+                        &nbsp;分享 <span class="weibo-m"></span><span class="fb-m"></span>&nbsp;<span class="glyphicon glyphicon-share-alt" style="color:#ffffff;font-size:13px;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-8">    
+                    <p>三桥服务集团股份有限公司（下称“三桥服务”），总部位于加拿大大温华人最密集的列治文市区。</p>
+                    <p>三桥服务投入数百万巨资，倾力打造北美华人一站式生活服务平台—-“三桥服务”(www.3Qnow.com) ，涵盖家政保洁、物业托管、房屋租售、投资移民、教育培训、定制旅游、饮食娱乐、法律税务等生活服务，以高端客户的定制服务为切入点，通过24×7人工客服、网站、微信、App为用户提供全方位的服务关怀，是华人家庭的生活好帮手，是服务商拓展北美华人市场的电商平台。</p>
+                    <p>三桥服务秉承“用户体验至上”和“科技改善生活”的理念，从研发、团队建设到运营推广，致力追求技术和服务的创新，为用户提供“可靠、专业、高效”的一站式会员制生活服务。</p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="/images/s1.jpg" class="img-responsive tbscategoryserviceimg">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="tbsleftbarblockgrey">
+                    <div class="tbsleftbarblockbolditem">这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容，这里可以放突出的内容</div>
+            </div>
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="/images/s2.jpg" class="img-responsive tbscategoryserviceimg">
+                </div>
+                <div class="col-sm-8">    
+                    <p>三桥服务 (www.3Qnow.com)，由三桥服务集团投入数百万巨资，倾情打造的北美华人生活服务第一平台，涵盖家政保洁、物业管理、房屋租赁、旅游餐饮和投资教育等各类高品质生活服务及高级定制服务，通过24x7人工客服、网站平台、微信和手机App为您提供一个全方位的生活服务平台。</p>
+                    <p>三桥服务秉承“用户体验至上”和“科技改善生活”的理念，从研发、团队建设到运营推广，致力追求技术和服务的创新，为用户提供“可靠、专业、高效”的一站式会员制生活服务。</p>
+                    <p>专为三桥VIP会员量身定制的24*7贴心服务，家有服务宝，乐享加国生活.依托最新移动互联和云存储科技，随时随地监控，是您安家置业的信心之选。私人管家：专业团队为您排忧解难，管理您的闲置物业，获得更高的投资收益如果您对我们的服务有任何疑问，或想成为我们的注册服务商，欢迎您随时联系我们！</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->

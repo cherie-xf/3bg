@@ -1,0 +1,111 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 130px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 130px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 130px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.weibo{
+  background:url(/images/footer_social_media_icons.png); 
+  background-size: 60px 60px;
+  display:inline-block; 
+  width: 30px; 
+  height:30px;
+}
+
+.weibo:hover{
+  background:url(/images/footer_social_media_icons.png); 
+  background-size: 60px 60px;
+  display:inline-block; 
+  width: 30px; 
+  height:30px; 
+  background-position:0px 30px;
+}
+
+.fb{
+  background:url(/images/footer_social_media_icons.png); 
+  background-size: 60px 60px;
+  display: inline-block; 
+  width: 30px; 
+  height:30px; 
+  background-position:30px 0px;
+}
+
+.fb:hover{
+  background:url(/images/footer_social_media_icons.png); 
+  background-size: 60px 60px;
+  display: inline-block; 
+  width: 30px; 
+  height:30px; 
+  background-position:30px 30px;
+}
+
+@media (max-width: 768px) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 330px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 330px;
+    background-color: #f5f5f5;
+  }
+  body > .container {
+    padding: 330px 15px 0;
+  }
+}
+
+
+@media (min-width: 768px)  and (max-width: 991px) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 330px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 330px;
+    background-color: #f5f5f5;
+  }
+  body > .container {
+    padding: 330px 15px 0;
+  }
+}

@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.ServiceOrderDao">
+ 
+  <sql id="SelectFields">
+  	SELECT
+  		a.order_id, 
+  		a.service_id,
+  		a.service_title,
+  		a.cover_img, 
+  		a.face_negotiable, 
+  		a.basic_price, 
+  		a.unit_price, 
+  		a.unit_id,
+  		a.unit_quantity, 
+  		a.tax_included, 
+  		a.gst_rate, 
+  		a.pst_rate, 
+  		a.warrant, 
+  		a.business_member_id, 
+  		a.business_name, 
+  		a.requirement, 
+  		a.user_id, 
+  		a.customer_member_id, 
+  		a.first_name, 
+  		a.last_name, 
+  		a.email, a.cell, 
+  		a.address, 
+  		a.city, 
+  		a.postcode, 
+  		a.created_by, 
+  		a.created_at, 
+  		a.modified_by, 
+  		a.modified_at, 
+  		a.status_id,
+  		a.sub_status_id,
+  		a.processed_at,
+  		a.is_deleted,
+  		b.status_name as status,
+  		c.servicetime
+  	FROM service_order a 
+  	left join service_order_status b on a.status_id = b.status_id
+  	left join service_schedule c on a.order_id = c.order_id and c.selected = 1
+  </sql>
+   
+  <sql id="WhereClause" >
+    <trim prefix="where" prefixOverrides="and |or"> 
+        <if test="order_id != null and order_id &gt; 0">
+	       AND a.order_id like '%${order_id}%' 
+	    </if>
+	    <if test="service_id != null and service_id &gt; 0">
+	       AND a.service_id = #{service_id} 
+	    </if>
+	    <if test="business_member_id != null and business_member_id != ''">
+	       AND a.business_member_id like '%${business_member_id}%' 
+	    </if>
+	    <if test="customer_member_id != null and customer_member_id != ''">
+	       AND a.customer_member_id like '%${customer_member_id}%' 
+	    </if>
+	    <if test="service_title != null and service_title != ''">
+	       AND a.service_title like '%${service_title}%'
+	    </if>
+	    <if test="status_id != null and status_id != ''">
+	       AND a.status_id = #{status_id}
+	    </if>
+	    <if test="sub_status_id != null and sub_status_id != ''">
+	       AND a.sub_status_id = #{sub_status_id}
+	    </if>	    	    
+	    <if test="orderDateTimeFrom != null">
+	       AND a.created_at &gt;= #{orderDateTimeFrom}
+	    </if>	    
+	    <if test="orderDateTimeTo != null">
+	       AND a.created_at &lt;= #{orderDateTimeTo}
+	    </if>
+	    <if test="serviceDateFrom != null">
+	       AND c.servicetime &gt;= #{serviceDateFrom} AND c.selected = 1
+	    </if>
+	    <if test="serviceDateTo != null">
+	       AND c.servicetime &lt;= #{serviceDateTo} AND c.selected = 1
+	    </if>
+	    <if test="user_id != null and user_id &gt; 0">
+	       AND a.user_id = #{user_id} 
+	    </if>
+	    <if test="isFinished != null and isFinished == false">
+	       AND a.status_id in ('10', '20', '30') 
+	    </if>
+	    <if test="isFinished != null and isFinished == true">
+	       AND a.status_id in ('40', '50', '60')
+	    </if>
+	       AND a.is_deleted = 0
+    </trim>
+  </sql>
+    
+  <select id="queryListByCondition" resultType="Service_Order" parameterType="Service_Order">
+    <include refid="SelectFields"/>
+    <include refid="WhereClause"/>
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+  </select> 
+  
+  <select id="queryListForProfessingByCondition" resultType="Service_Order" parameterType="Service_Order">
+    <include refid="SelectFields"/>
+	WHERE a.is_deleted = 0 AND a.business_member_id IS NOT NULL AND a.business_member_id != '' AND a.status_id = #{status_id}
+    <if test="sub_status_id != null">
+      AND a.sub_status_id = #{sub_status_id}
+    </if>	
+    <if test="processed_at != null">
+      AND (a.processed_at IS NULL OR a.processed_at &lt; #{processed_at})
+    </if>	
+    <if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+  </select>
+  
+
+ <select id="querySupplierOrderListByUserId" parameterType="Service_Order" resultType="Service_Order">
+  	SELECT
+  		a.order_id, 
+  		a.service_id,
+  		a.service_title,
+  		a.cover_img, 
+  		a.face_negotiable, 
+  		a.basic_price, 
+  		a.unit_price, 
+  		a.unit_id,
+  		a.unit_quantity, 
+  		a.tax_included, 
+  		a.gst_rate, 
+  		a.pst_rate, 
+  		a.warrant, 
+  		a.business_member_id, 
+  		a.business_name, 
+  		a.requirement, 
+  		a.user_id, 
+  		a.customer_member_id, 
+  		a.first_name, 
+  		a.last_name, 
+  		a.email, a.cell, 
+  		a.address, 
+  		a.city, 
+  		a.postcode, 
+  		a.created_by, 
+  		a.created_at, 
+  		a.modified_by, 
+  		a.modified_at, 
+  		a.status_id,
+  		a.sub_status_id,
+  		a.processed_at,
+  		a.is_deleted,
+  		b.status_name as status,
+  		c.servicetime
+  	FROM service_order a 
+  	left join service_order_status b on a.status_id = b.status_id
+  	left join service_schedule c on a.order_id = c.order_id and c.selected = 1
+  	left join service_product d on a.service_id = d.service_id
+  	left join member e on d.member_id = e.member_id
+  	left join user f on e.user_id = f.user_id
+	<if test="user_id > 0">
+	 	WHERE f.user_id = #{user_id}
+	</if>
+    <if test="order_id != null and order_id &gt; 0">
+       AND a.order_id like '%${order_id}%' 
+    </if>
+    <if test="service_title != null and service_title != ''">
+       AND a.service_title like '%${service_title}%'
+    </if>
+	<if test="isFinished != null and isFinished == false">
+       AND a.status_id in ('10', '20', '30') 
+    </if>
+    <if test="isFinished != null and isFinished == true">
+       AND a.status_id in ('40', '50', '60')
+    </if>
+ 	AND a.is_deleted = 0
+	 	
+	<if test="orderByClause != null and orderByClause != ''">
+       ORDER BY ${orderByClause}
+    </if>
+    <if test="pagination.pageSize>0">
+      LIMIT #{pagination.skip},#{pagination.pageSize}
+    </if> 
+ </select>
+  
+  
+  <select id="queryCountRowsByCondition" parameterType="Service_Order" resultType="java.lang.Integer" >
+    SELECT count(a.order_id) 
+    FROM service_order a left join service_schedule c on a.order_id = c.order_id and c.selected = 1
+    <include refid="WhereClause"/>
+  </select>  
+  
+  <select id="queryObjectByCondition" resultType="Service_Order" parameterType="Service_Order" >
+    SELECT a.*, b.unit as unit_name FROM service_order a left join service_unit b on a.unit_id = b.unit_id
+    <where>
+      a.order_id = #{order_id} AND a.is_deleted = 0
+    </where>
+  </select>
+ 
+ <insert id="insert" parameterType="Service_Order" useGeneratedKeys="true" keyProperty="order_id" keyColumn="order_id">
+    INSERT INTO service_order (
+      <if test="service_id != null and service_id != ''">
+        service_id,
+      </if>
+      <if test="service_title != null and service_title != ''">
+        service_title,
+      </if>
+      <if test="cover_img != null and cover_img != ''">
+        cover_img,
+      </if>
+      <if test="face_negotiable != null">
+        face_negotiable,
+      </if>
+      <if test="basic_price != null and basic_price != ''">
+        basic_price,
+      </if>
+       <if test="unit_price != null and unit_price != ''">
+        unit_price,
+      </if>
+       <if test="unit_id != null and unit_id != ''">
+        unit_id,
+      </if>
+       <if test="unit_quantity != null">
+        unit_quantity,
+      </if>
+      <if test="tax_included != null">
+        tax_included,
+      </if>
+       <if test="gst_rate != null">
+        gst_rate,
+      </if>
+       <if test="pst_rate != null">
+        pst_rate,
+      </if>
+      <if test="warrant != null and warrant != ''">
+        warrant,
+      </if>
+      <if test="business_member_id != null and business_member_id != ''">
+        business_member_id,
+      </if>      
+      <if test="business_name != null and business_name != ''">
+        business_name,
+      </if>      
+      <if test="requirement != null and requirement != ''">
+        requirement,
+      </if>      
+      <if test="user_id != null ">
+        user_id,
+      </if>      
+      <if test="customer_member_id != null and customer_member_id != ''">
+        customer_member_id,
+      </if>      
+	  <if test="first_name != null and first_name != ''">
+		first_name,
+	  </if>
+	  <if test="last_name != null and last_name != ''">
+		last_name,
+	  </if>
+	  <if test="email != null and email != ''">
+		email,
+	  </if>
+      <if test="cell != null and cell != ''">
+		cell,
+	  </if>
+	  <if test="address !=null and address != ''">
+		address,
+	  </if>
+	  <if test="city != null and city != ''">
+		city,
+	  </if>
+	  <if test="postcode != null and postcode != ''">
+		postcode,
+	  </if>
+      <if test="status_id != null and status_id != ''">
+        status_id,
+      </if>
+	  <if test="created_by > 0">
+        created_by,
+      </if>
+      <if test="created_at != null">
+        created_at
+      </if>       
+      )
+    values
+ (
+      <if test="service_id != null and service_id != ''">
+        #{service_id},
+      </if>
+      <if test="service_title != null and service_title != ''">
+        #{service_title},
+      </if>
+      <if test="cover_img != null and cover_img != ''">
+        #{cover_img},
+      </if>
+      <if test="face_negotiable != null">
+        #{face_negotiable},
+      </if>
+      <if test="basic_price != null and basic_price != ''">
+        #{basic_price},
+      </if>
+      <if test="unit_price != null and unit_price != ''">
+        #{unit_price},
+      </if>
+      <if test="unit_id != null and unit_id != ''">
+        #{unit_id},
+      </if>
+       <if test="unit_quantity != null">
+        #{unit_quantity},
+      </if>
+      <if test="tax_included != null">
+        #{tax_included},
+      </if>
+       <if test="gst_rate != null">
+        #{gst_rate},
+      </if>
+      <if test="pst_rate != null">
+        #{pst_rate},
+      </if>
+      <if test="warrant != null and warrant != ''">
+        #{warrant},
+      </if>
+      <if test="business_member_id != null and business_member_id != ''">
+        #{business_member_id},
+      </if>      
+      <if test="business_name != null and business_name != ''">
+        #{business_name},
+      </if>      
+      <if test="requirement != null and requirement != ''">
+        #{requirement},
+      </if>      
+      <if test="user_id != null ">
+        #{user_id},
+      </if>      
+      <if test="customer_member_id != null and customer_member_id != ''">
+        #{customer_member_id},
+      </if>      
+	  <if test="first_name != null and first_name != ''">
+		#{first_name},
+	  </if>
+	  <if test="last_name != null and last_name != ''">
+		#{last_name},
+	  </if>
+	  <if test="email != null and email != ''">
+		#{email},
+	  </if>
+      <if test="cell != null and cell != ''">
+		#{cell},
+	  </if>
+	  <if test="address !=null and address != ''">
+		#{address},
+	  </if>
+	  <if test="city != null and city != ''">
+		#{city},
+	  </if>
+	  <if test="postcode != null and postcode != ''">
+		#{postcode},
+	  </if>
+      <if test="status_id != null and status_id != ''">
+        #{status_id},
+      </if>
+	  <if test="created_by > 0">
+        #{created_by},
+      </if>
+      <if test="created_at != null">
+        #{created_at}
+      </if>
+      )
+  </insert>  
+
+  <update id="update" parameterType="Service_Order">
+    UPDATE service_order
+    <set>
+      <if test="service_id != null">
+        service_id = #{service_id},
+      </if>
+      <if test="service_title != null">
+        service_title = #{service_title},
+      </if>
+      <if test="cover_img != null">
+        cover_img = #{cover_img},
+      </if>
+      <if test="face_negotiable != null">
+        face_negotiable = #{face_negotiable},
+      </if>
+      <if test="basic_price != null">
+        basic_price = #{basic_price},
+      </if>
+      <if test="unit_price != null">
+        unit_price = #{unit_price},
+      </if>
+      <if test="unit_id != null">
+        unit_id = #{unit_id},
+      </if>
+       <if test="unit_quantity != null">
+        unit_quantity = #{unit_quantity},
+      </if>
+      <if test="tax_included != null">
+        tax_included = #{tax_included},
+      </if>
+       <if test="gst_rate != null">
+        gst_rate = #{gst_rate},
+      </if>
+      <if test="pst_rate != null">
+        pst_rate = #{pst_rate},
+      </if>
+      <if test="warrant != null">
+        warrant = #{warrant},
+      </if>
+      <if test="business_member_id != null">
+        business_member_id = #{business_member_id},
+      </if>      
+      <if test="business_name != null">
+        business_name = #{business_name},
+      </if>      
+      <if test="requirement != null">
+        requirement = #{requirement},
+      </if>      
+      <if test="user_id != null ">
+        user_id = #{user_id},
+      </if>      
+      <if test="customer_member_id != null">
+        customer_member_id = #{customer_member_id},
+      </if>      
+	  <if test="first_name != null ">
+		first_name = #{first_name},
+	  </if>
+	  <if test="last_name != null ">
+		last_name = #{last_name},
+	  </if>
+	  <if test="email != null ">
+		email = #{email},
+	  </if>
+      <if test="cell != null">
+		cell = #{cell},
+	  </if>
+	  <if test="address !=null">
+		address = #{address},
+	  </if>
+	  <if test="city != null">
+		city = #{city},
+	  </if>
+	  <if test="postcode != null">
+		postcode = #{postcode},
+	  </if>
+      <if test="status_id != null">
+        status_id = #{status_id},
+      </if>
+      <if test="sub_status_id != null">
+        sub_status_id = #{sub_status_id},
+      </if>      
+      <if test="modified_by > 0">
+        modified_by = #{modified_by},
+      </if>
+      <if test="modified_at != null">
+        modified_at = #{modified_at},
+      </if>
+    </set>
+    WHERE order_id = #{order_id} AND is_deleted = 0
+  </update>
+
+  <update id="updateStatus" parameterType="Service_Order">
+    UPDATE service_order
+    <set>
+    	<if test="modified_by>0">
+			modified_by=#{modified_by},
+		</if>
+		<if test="modified_at!=null">
+			modified_at=#{modified_at},
+		</if>
+		<if test="business_member_id!=null">
+			business_member_id=#{business_member_id},
+		</if>
+        status_id = #{new_status_id},
+        sub_status_id = #{new_sub_status_id},
+        processed_at = #{processed_at}
+    </set>
+    WHERE order_id = #{order_id} AND status_id = #{status_id} AND sub_status_id = #{sub_status_id} 
+  </update>
+  
+  <update id="delete" parameterType="Service_Order">
+    UPDATE service_order
+    <set>
+      <if test="modified_by > 0">
+        modified_by = #{modified_by},
+      </if>
+      <if test="modified_at != null">
+        modified_at = #{modified_at},
+      </if>
+      	is_deleted = 1
+    </set>
+    WHERE order_id = #{order_id} AND is_deleted = 0
+  </update> 
+  	
+  <insert id="insertServiceSchedule" parameterType="ServiceSchedule" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    	INSERT INTO service_schedule(
+    		order_id,
+    		servicetime,
+    		selected
+    		)
+    	value(
+    		#{order_id},
+    		#{servicetime},
+    		#{selected})    
+  </insert>
+  
+  <select id="queryServiceScheduleList" resultType="ServiceSchedule" parameterType="ServiceSchedule">
+    	SELECT 
+    		a.*
+    	FROM service_schedule a
+    <where>
+      	a.order_id = #{order_id}
+    </where>
+    	ORDER BY id
+  </select>
+  
+  <delete
+	  id="deleteServiceSchedule"
+	  parameterType="ServiceSchedule"
+	  flushCache="true"
+	  statementType="PREPARED"
+	  timeout="20">
+	  	delete from service_schedule where id = #{id}
+   </delete>
+   
+   <insert id="insertOrderRate" parameterType="Service_Order_Rate" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    	INSERT INTO service_order_rate(
+    		order_id,
+    		attitude,
+    		time,
+    		price,
+    		quality,
+    		comment,
+    		rated_at
+    		)
+    	value(
+    		#{order_id},
+    		#{attitude},
+    		#{time},
+    		#{price},
+    		#{quality},
+    		#{comment},
+    		#{rated_at})    
+  </insert>
+   
+   <select id="getOrderRate" resultType="Service_Order_Rate" parameterType="Service_Order_Rate">
+    	SELECT 
+    		*
+    	FROM service_order_rate
+    <where>
+      	order_id = #{order_id}
+    </where>
+  </select>
+  
+  <update id="updateOrderStatus" parameterType="Service_Order">
+    UPDATE service_order
+    <set>
+    	<if test="modified_by>0">
+			modified_by=#{modified_by},
+		</if>
+		<if test="modified_at!=null">
+			modified_at=#{modified_at},
+		</if>
+        status_id = #{status_id}
+    </set>
+    WHERE order_id = #{order_id} 
+  </update>
+  
+</mapper>

@@ -1,0 +1,59 @@
+﻿<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+        <!----------------左侧边栏---------------->
+        <!--#include file="leftbar.html" -->
+
+        <!----------------右侧边栏---------------->
+        <div class="col-sm-12 col-md-9">
+
+            <!-----------表单---------------------->
+            <form class="form-horizontal" role="form">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="form-group">
+                            <h1 class="yonghu" style="text-align:center;padding:20px">通知消息设置</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                       <label for="inputEmail3" class="col-sm-5 control-label"></label>
+                       <div class="form-group">
+                          <div class="col-sm-6">
+                            <label class="checkbox-inline"><input type="checkbox">短信通知</label>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-sm-12">
+                   <label for="inputEmail3" class="col-sm-5 control-label"></label>
+                   <div class="form-group">
+                    <div class="col-sm-6">
+                        <label class="checkbox-inline"><input type="checkbox">邮件通知</label>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+               <label for="inputEmail3" class="col-sm-5 control-label"></label>
+               <div class="form-group">
+                  <div class="col-sm-6">
+                    <label class="checkbox-inline"><input type="checkbox">两种方式通知</label>
+                </div> 
+            </div>
+        </div>
+    </div>
+</form>
+
+</div>
+
+</div>
+</div>
+<!--#include file="footer.shtml" -->

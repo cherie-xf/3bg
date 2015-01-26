@@ -1,0 +1,169 @@
+        </div>
+    </div>
+
+
+    <footer class="footer tbsfooter">
+      <div class="container" style="padding-top:5px">
+        <div class="col-xs-6 col-md-2 footerset">
+            <span class="footerhead">新会员专区</span><br>
+            <a class="footerli">会员注册</a><br>
+            <a class="footerli">我找服务</a><br>
+            <a class="footerli">我来服务</a>
+        </div>
+        <div class="col-xs-6 col-md-2 footerset">
+            <span class="footerhead">服务商加盟</span><br>
+            <a class="footerli">加盟优势</a><br>
+            <a class="footerli">加盟资质</a><br>
+            <a class="footerli"></a>
+        </div>
+        <div class="col-xs-6 col-md-2 footerset">
+            <span class="footerhead">法律声明</span><br>
+            <a class="footerli">三桥质保</a><br>
+            <a class="footerli">免责声明</a>
+        </div>
+        <div class="col-xs-6 col-md-2 footerset">
+            <span class="footerhead">关于我们</span><br>
+            <a href="Static_About.shtml" class="footerli">公司简介</a><br>
+            <a class="footerli">管理团队</a>
+        </div>
+        <div class="col-xs-6 col-md-2 footerset">
+            <span class="footerhead">联系我们</span><br>
+            <a class="footerli">常见问题</a><br>
+            <a class="footerli">招聘</a><br>
+            <a class="footerli"></a>
+        </div>
+        <div class="col-xs-6 col-md-2 footerset">
+            <span class="footerhead">服务热线</span><br>
+            <a class="footerli"><a class="glyphicon glyphicon-phone-alt" aria-hidden="true" style="font-size:13px;color:#ffffff"></a>&nbsp;&nbsp;604-998-1889</a><br>
+            <a class="footerli"><a href="#" class="weibo"></a><a href="#" style="" class="fb"></a></a>        
+        </div>
+      </div>
+      <div class="container" style="padding-top:5px">
+        <div class="col-xs-12 col-md-4">
+            <span class="footerli">推荐浏览器：&nbsp;&nbsp;<img src="/images/browsers.png" style="width: 90px; height: auto;"></span>
+        </div>
+        <div class="col-xs-12 col-md-6" style="padding-top:4px">
+            <span class="footerli">© Three Bridges Services Group Inc.. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+    
+
+    <script src="/js/main.js" type="text/javascript"></script>
+    <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="/js/bootstrap.js" type="text/javascript"></script>
+    <script src="/js/jquery.form-validator.min.js"></script>	
+    <script src="/js/holder.js"></script> 
+    <script src="/js/jquery.colorbox.js"></script>
+    <script src="/js/ui/jquery.ui.core.js"></script>
+    <script src="/js/ui/jquery.ui.widget.js"></script>
+    <script src="/js/ui/jquery.ui.datepicker.js"></script>
+    <script src="/js/ui/jquery.ui.timepicker.js"></script>
+    <script src="/js/star-rating.min.js"></script> 
+    <script src="/js/image-slideshow-5.js"></script> 
+
+
+    <script src="/js/leftbar.js" type="text/javascript"></script> 
+    <script src="/js/topheader.js"></script> 
+
+    <script language="JavaScript">
+
+        //date/time picker
+        $(function() {
+        	$("#datepicker").datepicker({minDate: new Date(2014, 12-1, 25)});
+        	$("#timepicker").timepicker({'scrollDefault': 'now' });
+        });
+
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        if(width<=991)
+        {
+        	$("#collapseOne").removeClass("in");
+        	$("#collapseTwo").removeClass("in");
+        	$("#collapseThree").removeClass("in");
+        	$("#collapseFour").removeClass("in");
+
+            //<img src='/images/logo.png' class='img-responsive' style='width:50px'>
+            $(".tbs-nav-home").html("三桥服务");
+        }else
+        {
+            $("#collapseHeadOne").removeAttr('href');
+            $("#collapseHeadTwo").removeAttr('href');
+            $("#collapseHeadThree").removeAttr('href');
+            $("#collapseHeadFour").removeAttr('href');
+        }
+
+        $(document).ready(function() {
+
+        	$.validate({
+        		modules:'security',
+        		onModulesLoaded : function() {
+        			$('input[name="confirmpassword"]').displayPasswordStrength();
+        		}
+        	});			
+
+        	if($("#agreeTerm").prop("checked")){
+        		$("#nextbutton").removeAttr("disabled");
+        	}		
+        	$("#agreeTerm").click(function(){
+        		if($(this).prop("checked")){
+        			$("#nextbutton").removeAttr("disabled");
+        		}else{
+        			$("#nextbutton").attr("disabled","disabled");						
+        		}
+        	});
+
+        	$(".dateSelector").change(function(){
+        		if($("#monthSelector").val()!=''&&$("#daySelector").val()!=''&&$("#yearSelector").val()!=''){
+        			var birthday = $("#monthSelector").val()+"/"+$("#daySelector").val()+"/"+$("#yearSelector").val();
+        			console.log(birthday);
+        			$("#birthday").val(birthday);
+        		}
+        	});
+
+
+        	var getting = $.get("system/refreshDictionary.json");
+        	getting.done(function(data) {
+        		console.log(data);
+        	});			
+
+        	//color box
+        	$(".openEditPage").colorbox({iframe:true, width:"90%", height:"90%", onClosed:function(){ 
+        		location.reload();
+        	}});
+
+        	$(".openViewPage").colorbox({iframe:true, width:"90%", height:"90%", onClosed:function(){ } });
+
+        	var currentpage=parseInt($("#currentPage").val());
+        	$(".pagination li:eq("+currentpage+")").addClass("active");
+
+        	//rating
+        	$(".rating-kv").rating();
+
+        });
+    </script>
+
+    <script type="text/javascript">
+	    function gotopage(pagenum){
+	    	$("#currentPage").val(pagenum);
+	    	document.forms[0].submit();
+	    }
+	    function turnpage(offset){
+	    	var currentpage=parseInt($("#currentPage").val());
+	    	var pagecount = parseInt($("#pageCount").val());
+	    	currentpage += offset;
+	    	$("#currentPage").val(currentpage);
+	    	if(currentpage>0&&currentpage<=pagecount){
+	    		document.forms[0].submit();
+	    	}
+	    }
+	    function archiveUser(userid){
+	    	if(confirm("删除后，只有系统管理员可以恢复. 确认删除吗?")){
+	    		$.colorbox({iframe:true,fixed:true, href:"archiveUser.html?userid="+userid, width:"50%", height:"50%", onClosed:function(){ 
+	    			document.forms[0].submit();
+	    		}});
+	    	}
+	    }     
+    </script>
+</body>
+</html>
+

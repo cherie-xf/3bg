@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.UserProfileDao">
+
+	<sql id="SelectFields">
+		SELECT user_id as userId, icon_url as iconUrl, description
+		as description, gender as gender,
+		birthday as birthday, blood_type as
+		bloodType, preferred_language as preferredLanguage,
+		passport_number as
+		passportNumber, chinese_id_number as chineseIdNumber, driver_license
+		as driverLicense,
+		profession as profession, health as health,
+		family_info as familyInfo, car_info as carInfo,
+		pet_info as petInfo,
+		property_info as propertyInfo, news_letter as newsLetter, sms_contact as smsContact, 
+		additional as additional,
+		created_at as createdAt, created_by as createdBy,
+		modified_at as modifiedAt, modified_by as modifiedBy,
+		is_deleted as
+		deleted
+		FROM user_profile up
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			AND is_deleted=0
+			<if test="userId>0">
+				AND user_id = #{userId}
+			</if>
+			<if test="birthday!=null and birthday!=''">
+				AND birthday = #{birthday}
+			</if>
+			<if test="driverLicense!=null and driverLicense!=''">
+				AND driver_license=#{driverLicense}
+			</if>
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="UserProfile" parameterType="UserProfile">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+		<if test="pagination.pageSize>0">
+			LIMIT #{pagination.skip},#{pagination.pageSize}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="UserProfile" resultType="java.lang.Integer">
+		SELECT count(user_id)
+		FROM user_profile
+		<include refid="WhereClause" />
+	</select>
+
+
+	<select id="queryObjectByCondition" resultType="UserProfile" parameterType="UserProfile">
+		<include refid="SelectFields" />
+		<where>
+			user_id=#{userId}
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="UserProfile">
+		INSERT INTO user_profile (
+		user_id,
+		icon_url,
+		description,
+		gender,
+		birthday,
+		blood_type,
+		preferred_language,
+		passport_number,
+		chinese_id_number,
+		driver_license,
+		profession,
+		health,
+		family_info,
+		car_info,
+		pet_info,
+		property_info,
+		news_letter,
+		sms_contact,
+		additional,
+		created_at,
+		created_by,
+		modified_at,
+		modified_by
+		)
+		values
+		(
+		#{userId},
+		#{iconUrl},
+		#{description},
+		#{gender},
+		#{birthday},
+		#{bloodType},
+		#{preferredLanguage},
+		#{passportNumber},
+		#{chineseIdNumber},
+		#{driverLicense},
+		#{profession},
+		#{health},
+		#{familyInfo},
+		#{carInfo},
+		#{petInfo},
+		#{propertyInfo},
+		#{newsLetter},
+		#{smsContact},
+		#{additional},
+		#{createdAt},
+		#{createdBy},
+		#{modifiedAt},
+		#{modifiedBy}
+		)
+	</insert>
+
+	<update id="update" parameterType="UserProfile">
+		UPDATE user_profile
+		<set>
+			<if test="userId>0">
+				user_id=#{userId},
+			</if>
+			<if test="iconUrl!=null and iconUrl!=''">
+				icon_url=#{iconUrl},
+			</if>
+			<if test="description!=null and description!=''">
+				description=#{description},
+			</if>
+			<if test="gender!=null and gender!=''">
+				gender=#{gender},
+			</if>
+			<if test="birthday!=null and birthday!=''">
+				birthday=#{birthday},
+			</if>
+			<if test="bloodType!=null and bloodType!=''">
+				blood_type=#{bloodType},
+			</if>
+			<if test="preferredLanguage!=null and preferredLanguage!=''">
+				preferred_language=#{preferredLanguage},
+			</if>
+			<if test="passportNumber!=null and passportNumber!=''">
+				passport_number=#{passportNumber},
+			</if>
+			<if test="chineseIdNumber!=null and chineseIdNumber!=''">
+				chinese_id_number=#{chineseIdNumber},
+			</if>
+			<if test="driverLicense!=null and driverLicense!=''">
+				driver_license=#{driverLicense},
+			</if>
+			<if test="profession!=null and profession!=''">
+				profession=#{profession},
+			</if>
+			<if test="health!=null and health!=''">
+				health=#{health},
+			</if>
+			<if test="familyInfo!=null and familyInfo!=''">
+				family_info=#{familyInfo},
+			</if>
+			<if test="carInfo!=null and carInfo!=''">
+				car_info=#{carInfo},
+			</if>
+			<if test="petInfo!=null and petInfo!=''">
+				pet_info=#{petInfo},
+			</if>
+			<if test="propertyInfo!=null and propertyInfo!=''">
+				property_info=#{propertyInfo},
+			</if>
+			<if test="newsLetter!=null">
+				news_letter=#{newsLetter},
+			</if>
+			<if test="smsContact!=null">
+				sms_contact=#{smsContact},
+			</if>
+			<if test="additional!=null and additional!=''">
+				additional=#{additional},
+			</if>
+			<if test="modifiedAt!=null and modifiedAt!=''">
+				modified_at=#{modifiedAt},
+			</if>
+			<if test="modifiedBy!=null and modifiedBy!=''">
+				modified_by=#{modifiedBy},
+			</if>
+		</set>
+		WHERE user_id=#{userId}
+	</update>
+
+	<update id="delete" parameterType="UserProfile">
+	    UPDATE user_profile
+	    <set>
+	      <if test="modifiedBy > 0">
+	        modified_by = #{modifiedBy},
+	      </if>
+	      <if test="modifiedAt != null">
+	        modified_at = #{modifiedAt},
+	      </if>
+	      is_deleted = 1
+	    </set>
+	    WHERE user_id = #{userId} AND is_deleted = 0
+	</update> 
+</mapper>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<user user_id="1" email="user1@email.com" phone="123456789"
+		first_name="Peter" last_name="Jackson" preferred_name="Pete" password="password"
+		enabled="true" status="1" created_by="1" created_at="2014-11-27 13:30:04"
+		modified_by="2" modified_at="2014-11-27 13:30:04" />
+	<contact_type type_code="10EM" type_name="first type code"
+		description="description" icon="some url" />
+	<contact_type type_code="11EM" type_name="second type code"
+		description="description" icon="some url" />
+
+	<contact id="1" type_code="10EM" contact_value="tom@hotmail.com"
+		user_id="1" created_by="1" created_at="2014-11-27 13:30:04"
+		modified_by="2" modified_at="2014-11-27 13:30:04" />
+    <contact id="2" type_code="11EM" contact_value="tobedeleted@hotmail.com"
+        user_id="1" created_by="1" created_at="2014-11-27 13:30:04"
+        modified_by="2" modified_at="2014-11-27 13:30:04" />
+</dataset>

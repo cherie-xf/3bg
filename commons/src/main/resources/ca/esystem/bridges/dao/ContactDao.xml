@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ca.esystem.bridges.dao.ContactDao">
+
+	<sql id="SelectFields">
+		SELECT c.* FROM contact c JOIN contact_type ct ON c.type_code = ct.type_code  
+	</sql>
+
+	<sql id="WhereClause">
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="type_code!=null and type_code!=''">
+				AND c.type_code = #{type_code}
+			</if>
+			<if test="type_class!=null and type_class!=''">
+				AND ct.type_class = #{type_class}
+			</if>			
+			<if test="contact_value!=null and contact_value!=''">
+				AND c.contact_value = #{contact_value}
+			</if>
+			<if test="user_id>0">
+				AND c.user_id = #{user_id}
+			</if>
+			    AND c.is_deleted=0
+		</trim>
+	</sql>
+
+	<select id="queryListByCondition" resultType="Contact" parameterType="Contact">
+		<include refid="SelectFields" />
+		<include refid="WhereClause" />
+		<if test="orderByClause!=null and orderByClause!=''">
+			ORDER BY ${orderByClause}
+		</if>
+	</select>
+
+	<select id="queryCountRowsByCondition" parameterType="Contact" resultType="java.lang.Integer">
+		SELECT count(c.*)
+		<include refid="WhereClause" />
+	</select>
+
+	<select id="queryObjectByCondition" resultType="Contact"
+		parameterType="Contact">
+		SELECT * FROM contact  
+		<where>
+			id=#{id}
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="Contact" useGeneratedKeys="true"	keyProperty="id" keyColumn="id">
+		INSERT INTO contact (
+		<trim suffix="" suffixOverrides=",">
+		<if test="type_code!=null and type_code!=''">
+			type_code,
+		</if>
+		<if test="type_class!=null and type_class!=''">
+			type_class,
+		</if>		
+		<if test="contact_value!=null and contact_value!=''">
+			contact_value,
+		</if>
+		<if test="user_id>0">
+			user_id,
+		</if>
+		<if test="created_by>0">
+			created_by,
+		</if>
+		<if test="created_at!=null">
+			created_at,
+		</if>
+		</trim>
+		)
+		values
+		(
+		<trim suffix="" suffixOverrides=",">
+		<if test="type_code!=null and type_code!=''">
+			#{type_code},
+		</if>
+		<if test="type_class!=null and type_class!=''">
+			#{type_class},
+		</if>			
+		<if test="contact_value!=null and contact_value!=''">
+			#{contact_value},
+		</if>
+		<if test="user_id>0">
+			#{user_id},
+		</if>
+		<if test="created_by>0">
+			#{created_by},
+		</if>
+		<if test="created_at!=null">
+			#{created_at},
+		</if>		
+		</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="Contact">
+		UPDATE contact
+		<set>
+			<if test="type_code!=null">
+				type_code=#{type_code},
+			</if>
+			<if test="type_class!=null">
+				type_class=#{type_class},
+			</if>			
+			<if test="contact_value!=null">
+				contact_value=#{contact_value},
+			</if>
+			<if test="modified_by>0">
+				modified_by=#{modified_by},
+			</if>			
+			<if test="modified_at!=null">
+				modified_at=#{modified_at},
+			</if>
+		</set>
+		WHERE id=#{id}
+	</update>
+	
+	<update id="delete" parameterType="Contact">
+		UPDATE contact
+		<set>
+			is_deleted=1
+		</set>
+		WHERE id=#{id}
+	</update>
+
+</mapper>

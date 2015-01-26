@@ -1,0 +1,102 @@
+<!--#include file="header.shtml" -->
+
+<div class="main container">
+    <div class="row">
+
+<!----------------左侧边栏---------------->
+<!--#include file="leftbar.html" -->
+                     
+                        <!----------------右侧边栏---------------->
+                        <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main1">-->
+                        <div class="col-sm-12 col-md-9">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <span class="tbsmanagementtitle">其他档案</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-----------表单---------------------->
+                            <form class="form-horizontal" role="form">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 control-label" style="text-align:left">职业信息：</label>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <textarea class="col-xs-12 col-sm-12 col-md-12" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 control-label" style="text-align:left">健康信息：</label>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <textarea class="col-xs-12 col-sm-12 col-md-12" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 control-label" style="text-align:left">家庭成员信息：</label>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <textarea class="col-xs-12 col-sm-12 col-md-12" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 control-label" style="text-align:left">汽车信息：</label>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <textarea class="col-xs-12 col-sm-12 col-md-12" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 control-label" style="text-align:left">宠物信息：</label>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <textarea class="col-xs-12 col-sm-12 col-md-12" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 control-label" style="text-align:left">贵重物品：</label>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <textarea class="col-xs-12 col-sm-12 col-md-12" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="col-sm-10" id="queding" style="text-align:right">
+                                                <button type="button" class="btn btn-default btn-lg tbs-button tbs-orange tbs-button-orange">确定</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!------------------表单------------------> 
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+</div>
+</div>
+
+<!--#include file="footer.shtml" -->
